@@ -1,0 +1,96 @@
+﻿        .TabArea
+        {
+                    background-color: White;
+                    font-size: x-small;
+                    border-left: 1px solid black;
+                    border-bottom: 1px solid black;
+                    border-right: 1px solid black;
+                    border-top:1px solid black;
+                    position:absolute;
+                    top:42px;
+                    height:400px;
+                    z-index:-25;
+        }
+        
+        .alinearderecha
+        {
+            text-align: right;
+        }
+        .dtvLogo
+        {
+            position:absolute;
+            height: 91px;
+            width: 125px;
+            top: 11px;
+            background-image: url(images/DIRECTV_logo.png);
+        }
+        body
+        {
+            font: normal 12px auto "Trebuchet MS" , Verdana;
+            background-color: #ffffff;
+            color: #4f6b72;
+            /*background-image:url('images/dtv_bg.png');*/
+        }
+        .popUpStyle
+        {
+            font: normal 11px auto "Trebuchet MS" , Verdana;
+            background-color: #ffffff;
+            color: #4f6b72;
+            padding: 6px;
+        }
+        .drag
+        {
+            background-color: #dddddd;
+            cursor: move;
+            border: solid 1px gray;
+        }
+        .barraTitulo
+        {
+            width: auto;
+            padding: 1px;
+            background-image: url('images/imgSDContentTitleBarBackGround.jpg');
+        }
+        .barraTitulo2
+        {
+            width: auto;
+            padding: 1px;
+            background-image: url('images/imgSDContentSubTitleBarBackGround.jpg');
+        }
+        .lineaTitulo
+        {
+            position:relative;
+            width:auto;
+            height: 1px;
+            top:21px;
+            background-image: url('images/imgSDLine.png');
+        }
+        .panelBotones
+        {
+           position:relative;
+           left:650px;
+           top:0px;
+        }
+        .Titulo
+        {
+            position:relative;
+            top:-264px;
+            left: -232px;
+}
+        .class1 A:link {color: #4f6b72;}
+        .class1 A:visited {color: #4f6b72;}
+        .class1 A:active {color: #4f6b72;}
+        .class1 A:hover {color: #4f6b72;}
+        .irArriba
+        {
+            position: relative;
+            background-color:#E4EBF3;  
+            width:auto;
+            height:15px;
+            padding: 4px;
+        }
+        .separador
+        {
+            width: auto;
+            height: 3px;
+            background-image: url('images/imgSDContentTitleBarBackGround.jpg');
+        }        

@@ -1,0 +1,436 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Site1.master.vb" Inherits="ESTIMATEInv2010.Site1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        body
+        {
+            font: normal 12px auto "Trebuchet MS" , Verdana;
+            background-color: #ffffff;
+            color: #4f6b72;
+        }
+        .popUpStyle
+        {
+            font: normal 11px auto "Trebuchet MS" , Verdana;
+            background-color: #ffffff;
+            color: #4f6b72;
+            padding: 6px;
+        }
+        .drag
+        {
+            background-color: #dddddd;
+            cursor: move;
+            border: solid 1px gray;
+        }
+        .nodeLevel1
+        {
+            font: Arial,Sans-Serif;
+            font-size: small;
+            color: black;
+        }
+        .nodeLevel2
+        {
+            font: Arial,Sans-Serif;
+            font-size: small;
+        }
+        .nodeLevel3
+        {
+            font: Arial,Sans-Serif;
+            font-size: small;
+        }
+        .pagination
+        {
+            font-size: 80%;
+        }
+        .pagination a
+        {
+            text-decoration: none;
+            border: solid 1px #AAE;
+            color: #15B;
+        }
+        .pagination a, .pagination span
+        {
+            display: block;
+            float: left;
+            padding: 0.3em 0.5em;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        .pagination .current
+        {
+            background: #26B;
+            color: #fff;
+            border: solid 1px #AAE;
+        }
+        .pagination .current.prev, .pagination .current.next
+        {
+            color: #999;
+            border-color: #999;
+            background: #fff;
+        }
+        .style1
+        {
+            height: 17px;
+        }
+    </style>
+    <script language="javascript" type="text/javascript">
+        function SiguienteObjeto() {
+            if (event.keyCode == 13) event.keyCode = 9;
+        }
+    </script>
+    <script type="text/javascript">
+        function clientShowing(source, args) {
+            source._popupBehavior._element.style.zIndex = 100000;
+        }
+        ShowProcessMessage = function (PanelName) {
+            //Sets the visibility of the Div to 'visible'
+            document.getElementById(PanelName).style.visibility = "visible";
+
+            /* Displays the  'In-Process' message through the innerHTML.
+            You can write Image Tag to display Animated Gif */
+            document.getElementById(PanelName).innerHTML = "<h3> <img src='../images/imgSDloader30x30.gif'> Por Favor Espere ...</h3> ";
+
+            /*document.getElementById(PanelName).innerHTML =
+            'In-Process...Please Wait ... '; */
+
+            //Call Function to Disable all the other Controls
+            DisableAllControls('btnLoad');
+
+            return true; //Returns the control to the Server click event
+        }
+
+        DisableAllControls = function (CtrlName) {
+            var elm;
+            /*Loop for all the controls of the page.*/
+            for (i = 0; i <= document.forms[0].elements.length - 1; i++) {
+                /* 1.Check for the Controls with type 'hidden' – 
+                which are ASP.NET hidden controls for Viewstate and EventHandlers. 
+                It is very important that these are always enabled, 
+                for ASP.NET page to be working.
+                2.Also Check for the control which raised the event 
+                (Button) - It should be active. */
+
+                elm = document.forms[0].elements[i];
+
+                if ((elm.name == CtrlName) || (elm.type == 'hidden')) {
+                    elm.disabled = false;
+                }
+                else {
+                    elm.disabled = true; //Disables all the other controls
+                }
+            }
+        }
+        
+    </script>
+    <script type="text/javascript" src="../Scripts/General.js"></script>
+    <script type="text/javascript" src="../Scripts/grvControl.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="page" style='width: 100%'>
+        <div class="header">
+            <div class="title">
+                <table>
+                    <tr>
+                        <td bgcolor="White">
+                            <asp:Image ID="ImgSistema" runat="server" ImageUrl="~/Images/LogoEstimate.jpg" Width="170" /><br />
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                            <asp:Label ID="Label3" runat="server" Text="Compras-Inventario" ForeColor="White"
+                                Font-Size="X-Large" Font-Bold="True"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:Label ID="Label4" runat="server" Text="Ver. 10.0" ForeColor="White" Font-Bold="True"></asp:Label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="clear hideSkiplink" style='width: 100%'>
+                <table width="100%">
+                    <tr>
+                        <td colspan="2">
+                            <div class="barraTitulo">
+                                <asp:Label ID="lblEmpresa" runat="server" ForeColor="White" Font-Size="Small" Font-Bold="True"></asp:Label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <asp:Label ID="lblUsuario" runat="server" ForeColor="White" Font-Bold="True"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="barraTitulo">
+                                &nbsp;
+                                <asp:Label ID="lblAno" runat="server" ForeColor="White" Font-Size="Small" Font-Bold="True"></asp:Label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="100%" colspan="2">
+                            <table width="100%">
+                                <tr>
+                                    <td width="10%" valign="top">
+                                        <asp:Menu ID="Menu1" Orientation="Horizontal" runat="server">
+                                            <StaticMenuStyle BackColor="#eeeeee" BorderColor="Black" BorderStyle="Solid" BorderWidth="1" />
+                                            <StaticMenuItemStyle HorizontalPadding="5" />
+                                            <DynamicMenuStyle CssClass="MenuIE8" BorderColor="Black" BorderStyle="Solid" BorderWidth="1" />
+                                            <DynamicMenuItemStyle BackColor="#eeeeee" HorizontalPadding="5" VerticalPadding="3" />
+                                            <Items>
+                                                <asp:MenuItem NavigateUrl="" Text="CATALOGOS" Value="Catalogos">
+                                                    <asp:MenuItem NavigateUrl="~/Catalogos/frmtbEmpresas_lst.aspx" Text="Empresas" Value="Empresas">
+                                                    </asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Catalogos/frmEscogerEmpresa_dtl.aspx" Text="Escoger Empresa"
+                                                        Value="EscogerEmpresa"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Catalogos/frmtbSubEmpresas_lst.aspx" Text="SubEmpresas"
+                                                        Value="SubEmpresas"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Catalogos/frmEscogerSubEmpresa_dtl.aspx" Text="Escoger SubEmpresa"
+                                                        Value="EscogerSubEmpresa"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Catalogos/frmtbDestinos_lst.aspx" Text="Destinos-Proyectos"
+                                                        Value="Destinos-Proyectos"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Catalogos/frmtbCenCostos_lst.aspx" Text="Ctros.Costos-Obras"
+                                                        Value="CenCostos"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Catalogos/frmtbBodegas_lst.aspx" Text="Bodegas" Value="Bodegas">
+                                                    </asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Catalogos/frmtbTransacciones_lst.aspx" Text="Transacciones"
+                                                        Value="Transacciones"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Catalogos/frmtbTiposComprobantes_lst.aspx" Text="Tipos de Comprobantes"
+                                                        Value="TiposComprobantes"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Catalogos/frmtbTiposDocumentos_lst.aspx" Text="Tipos de Documentos"
+                                                        Value="TiposDocumentos"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Catalogos/frmtbTiposDocumentos1_lst.aspx" Text="Parámetros Contables"
+                                                        Value="ParametrosContables"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Catalogos/frmtbRepresentantes_lst.aspx" Text="Representantes"
+                                                        Value="Representantes"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Catalogos/frmtbGrupos_lst.aspx" Text="Grupos" Value="Grupos">
+                                                    </asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Catalogos/frmtbLineas_lst.aspx" Text="Lineas" Value="Líneas">
+                                                    </asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Catalogos/frmtbRecursos_lst.aspx" Text="Recursos" Value="Recursos">
+                                                    </asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Catalogos/frmtbLapsos_lst.aspx" Text="Lapsos" Value="Lapsos">
+                                                    </asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Catalogos/frmEscogerAno_dtl.aspx" Text="Escoger Año"
+                                                        Value="EscogerAno"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Catalogos/frmtbContratistas_lst.aspx" Text="Contratistas"
+                                                        Value="Contratistas"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Catalogos/frmtbProveedores_lst.aspx" Text="Proveedores"
+                                                        Value="Proveedores"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Catalogos/frmtbAnalisis_lst.aspx" Text="Análisis"
+                                                        Value="Analisis"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Catalogos/frmtbCodigosTablas_lst.aspx" Text="Consecutivos Catálogos"
+                                                        Value="Desperdicios"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Catalogos/frmtbUsuarios_lst.aspx" Text="Usuarios" Value="Usuarios">
+                                                    </asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="frmCambioPassword_dtl.aspx" Text="Cambio Password" Value="Password">
+                                                    </asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Catalogos/frmtbPerfilesSeguridad_lst.aspx" Text="Perfiles Seguridad"
+                                                        Value="PerfilesSeguridad"></asp:MenuItem>
+                                                </asp:MenuItem>
+                                            </Items>
+                                        </asp:Menu>
+                                    </td>
+                                    <td width="10%" valign="top">
+                                        <asp:Menu ID="Menu2" Orientation="Horizontal" runat="server">
+                                            <StaticMenuStyle BackColor="#eeeeee" BorderColor="Black" BorderStyle="Solid" BorderWidth="1" />
+                                            <StaticMenuItemStyle HorizontalPadding="5" />
+                                            <DynamicMenuStyle CssClass="MenuIE8" BorderColor="Black" BorderStyle="Solid" BorderWidth="1" />
+                                            <DynamicMenuItemStyle BackColor="#eeeeee" HorizontalPadding="5" VerticalPadding="3" />
+                                            <Items>
+                                                <asp:MenuItem NavigateUrl="" Text="MOVIMIENTOS" Value="Movimientos">
+                                                    <asp:MenuItem NavigateUrl="~/Movimientos/frmtbRequisiciones_lst.aspx" Text="Requisiciones"
+                                                        Value="Requisiciones"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Movimientos/frmtbComparativos_lst.aspx" Text="Comparativos"
+                                                        Value="Comparativos"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Movimientos/frmtbOrdenesCompra_lst.aspx" Text="Ordenes de Compra"
+                                                        Value="OrdenesCompra"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Movimientos/frmtbOrdenesAjuste_lst.aspx" Text="Ordenes de Ajuste"
+                                                        Value="OrdenesAjuste"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Movimientos/frmtbInventario_lst.aspx" Text="Movimientos Inventario"
+                                                        Value="MovimientosInventario"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Movimientos/frmtbExplosion_lst.aspx" Text="Explosión de Recursos"
+                                                        Value="ExplosionRecursos"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Movimientos/frmtbExplosionPresupuestoDetalle_lst.aspx" Text="Explosión de Recursos-Análisis"
+                                                        Value="ExplosionRecursosAnAlisis"></asp:MenuItem>
+<%--                                                    <asp:MenuItem NavigateUrl="~/Movimientos/frmtbFacturasCompra_lst.aspx" Text="Facturas-Dcto.Equivalente"
+                                                        Value="Facturas-Dcto.Equivalente"></asp:MenuItem>
+--%>                                                
+                                        </asp:MenuItem>
+                                            </Items>
+                                        </asp:Menu>
+                                    </td>
+                                    <td width="10%" valign="top">
+                                        <asp:Menu ID="Menu3" Orientation="Horizontal" runat="server">
+                                            <StaticMenuStyle BackColor="#eeeeee" BorderColor="Black" BorderStyle="Solid" BorderWidth="1" />
+                                            <StaticMenuItemStyle HorizontalPadding="5" />
+                                            <DynamicMenuStyle CssClass="MenuIE8" BorderColor="Black" BorderStyle="Solid" BorderWidth="1" />
+                                            <DynamicMenuItemStyle BackColor="#eeeeee" HorizontalPadding="5" VerticalPadding="3" />
+                                            <Items>
+                                                <asp:MenuItem NavigateUrl="" Text="PROCESOS" Value="Procesos">
+                                                    <asp:MenuItem NavigateUrl="~/Procesos/frmReaplicacionInventario_dtl.aspx?tipPro=RecSal"
+                                                        Text="Recálculo Salidas de Almacén" Value="RecalculoSalidasAlmacen"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Procesos/frmReaplicacionInventario_dtl.aspx?tipPro=ReaMov"
+                                                        Text="Reaplicación de Saldos" Value="ReaplicacionSaldos"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Procesos/frmCierreLapso_dtl.aspx" Text="Cierre de Lapso"
+                                                        Value="CierreLapso"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Procesos/frmAbreLapso_dtl.aspx" Text="ReAbre Lapso"
+                                                        Value="AbreLapso"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Procesos/frmReaplicacionInventario_dtl.aspx?tipPro=PasSal"
+                                                        Text="Cierre de Año" Value="CierreAno"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Procesos/frmReaplicacionInventario_dtl.aspx?tipPro=PasSal"
+                                                        Text="Pasar Saldos al Año Siguiente" Value="PasarSaldosAnoSiguiente"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Procesos/frmReaplicaAContabilidad_dt.aspx" Text="Reaplicación a Contabilidad"
+                                                        Value="Reaplicar a Contabilidad el Inventario de un Lapso"></asp:MenuItem>
+                                                </asp:MenuItem>
+                                            </Items>
+                                        </asp:Menu>
+                                    </td>
+                                    <td width="10%" valign="top">
+                                        <asp:Menu ID="Menu5" Orientation="Horizontal" runat="server">
+                                            <StaticMenuStyle BackColor="#eeeeee" BorderColor="Black" BorderStyle="Solid" BorderWidth="1" />
+                                            <StaticMenuItemStyle HorizontalPadding="5" />
+                                            <DynamicMenuStyle CssClass="MenuIE8" BorderColor="Black" BorderStyle="Solid" BorderWidth="1" />
+                                            <DynamicMenuItemStyle BackColor="#eeeeee" HorizontalPadding="5" VerticalPadding="3" />
+                                            <Items>
+                                                <asp:MenuItem NavigateUrl="" Text="INFORMES" Value="Informes">
+                                                    <asp:MenuItem NavigateUrl="~/Informes/frmRecursosParametros_dtl.aspx?tipRep=REP"
+                                                        Text="Recursos" Value="Recursos"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Informes/frmDestinosParametros_dtl.aspx?tipRep=REP"
+                                                        Text="Destinos" Value="Destinos"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Informes/frmCenCostosParametros_dtl.aspx?tipRep=REP"
+                                                        Text="Centros de Costos" Value="CenCostos"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Informes/frmPresupuestoDetalleParametros_dtl.aspx?tipRep=REP"
+                                                        Text="Items de Presupuesto" Value="PresupuestoDetalle"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Informes/frmComprasParametros_dtl.aspx" Text="Compras"
+                                                        Value="ComprobanteContable"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Informes/frmMovimientosInformes_dtl.aspx" Text="Movimientos" Value="Movimientos"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Informes/frmTiposDocumentosRelacion_dtl.aspx" Text="Relacion Tipos de Documentos" Value="RelacionTiposDocumentos">
+                                                    </asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Informes/frmSaldosRecursosParametros_dtl.aspx" Text="Saldos Recursos"
+                                                        Value="SaldosRecursos"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Informes/frmTotalesPorBodegasParametros_dtl.aspx" Text="Totales por Bodegas" Value="TotalesporBodegas">
+                                                    </asp:MenuItem>
+                                                </asp:MenuItem>
+                                            </Items>
+                                        </asp:Menu>
+                                    </td>
+                                    <td width="10%">
+                                        <asp:Menu ID="Menu4" Orientation="Horizontal" runat="server">
+                                            <StaticMenuStyle BackColor="#eeeeee" BorderColor="Black" BorderStyle="Solid" BorderWidth="1" />
+                                            <StaticMenuItemStyle HorizontalPadding="5" />
+                                            <DynamicMenuStyle CssClass="MenuIE8" BorderColor="Black" BorderStyle="Solid" BorderWidth="1" />
+                                            <DynamicMenuItemStyle BackColor="#eeeeee" HorizontalPadding="5" VerticalPadding="3" />
+                                            <Items>
+                                                <asp:MenuItem NavigateUrl="" Text="CONSULTAS" Value="Consultas">
+                                                    <asp:MenuItem NavigateUrl="~/Consultas/frmtbRecursosSaldos_lst.aspx?bodId=0" Text="Recursos-Saldos"
+                                                        Value="SaldosRecursos"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Consultas/frmtbRecursosEntradas_lst.aspx?bodId=0" Text="Recursos-Proveedores"
+                                                        Value="RecursosProveedores"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Consultas/frmtbRecursosSalidas_lst.aspx?bodId=0" Text="Recursos-CenCostos"
+                                                        Value="RecursosCenCostos"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Consultas/frmtbRecursosSalidas2_lst.aspx?bodId=0" Text="Recursos-PresupuestoDetalle"
+                                                        Value="RecursosPresupuestoDetalle"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Consultas/frmtbProveedoresEntradas_lst.aspx?bodId=0" Text="Proveedores-Recursos"
+                                                        Value="ProveedoresRecursos"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Consultas/frmtbCenCostosSalidas_lst.aspx?bodId=0" Text="CenCostos-Recursos"
+                                                        Value="CenCostosRecursos"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Consultas/frmtbPresupuestoDetalleSalidas_lst.aspx?bodId=0" Text="PresupuestoDetalle-Recursos"
+                                                        Value="CenCostosRecursos"></asp:MenuItem>
+                                                </asp:MenuItem>
+                                            </Items>
+                                        </asp:Menu>
+                                    </td>
+                                                <td width="10%">
+                                                    <asp:Menu ID="Menu6" Orientation="Horizontal" runat="server">
+                                                        <StaticMenuStyle BackColor="#eeeeee" BorderColor="Black" BorderStyle="Solid" BorderWidth="1" />
+                                                        <StaticMenuItemStyle HorizontalPadding="5" />
+                                                        <DynamicMenuStyle CssClass="MenuIE8" BorderColor="Black" BorderStyle="Solid" BorderWidth="1" />
+                                                        <DynamicMenuItemStyle BackColor="#eeeeee" HorizontalPadding="5" VerticalPadding="3" />
+                                                        <Items>
+                                                            <asp:MenuItem NavigateUrl="" Text="CONTABILIDAD SIESA" Value="Contabilidad">
+                                                                <asp:MenuItem NavigateUrl="~/Contabilidad/frmtbCGBATCH1_lst.aspx" Text="Comprobante Contable"
+                                                                    Value="ComprobanteContable"></asp:MenuItem>
+                                                                <asp:MenuItem NavigateUrl="~/Contabilidad/frmtbCuentasPorPagar_lst.aspx" Text="Cuentas por Pagar"
+                                                                    Value="CuentasPorPagar"></asp:MenuItem>
+                                                                <asp:MenuItem NavigateUrl="~/Contabilidad/frmtbExportaMvtoExcel_dtl.aspx" Text="Exportar Movto. a Excel"
+                                                                    Value="ExportarMovtoExcel"></asp:MenuItem>
+                                                                <asp:MenuItem NavigateUrl="~/Contabilidad/frmtbFacturasProveedor_lst.aspx" Text="Facturas"
+                                                                    Value="Facturas"></asp:MenuItem>
+                                                            </asp:MenuItem>
+                                                        </Items>
+                                                    </asp:Menu>
+                                                </td>
+
+                                </tr>
+                                            <tr>
+                                                <td>
+                                                    <asp:Label ID="Label5" runat="server" Text="Acceso Directo : " Font-Bold="True" ForeColor="White"></asp:Label>
+                                                </td>
+                                                <td>
+                                                    <asp:Button ID="imgRequisiciones" runat="server" Text="Requisiciones" />
+                                                </td>
+                                                <td>
+                                                    <asp:Button ID="imgComparativos" runat="server" Text="Comparativos" />
+                                                </td>
+                                                <td>
+                                                    <asp:Button ID="imgOrdenesCompra" runat="server" Text="Ordenes de Compra" />
+                                                </td>
+                                                <td>
+                                                    <asp:Button ID="imgOrdeneAjuste" runat="server" Text="Ordenes de Ajuste" />
+                                                </td>
+                                                <td>
+                                                    <asp:Button ID="imgInventario" runat="server" Text="Movimientos" />
+                                                </td>
+                                            </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="main">
+            <table width="100%">
+                <tr>
+                    <td>
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="footer">
+        <table width="100%">
+            <tr>
+                <td>
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/LogoEstimate.jpg" Width="100px" /><br />
+                    <asp:Label ID="Label1" runat="server" Text="Ver.10.0" Font-Size="Smaller"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    <asp:Label ID="Label2" runat="server" Text="Actualizado a : Ene-18-2026" Font-Size="Smaller"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:ImageButton ID="imgExit" runat="server" ImageUrl="~/images/icoFormBack.gif"
+                        ToolTip="Salir" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

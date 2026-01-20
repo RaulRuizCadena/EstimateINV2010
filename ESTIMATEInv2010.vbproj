@@ -1,0 +1,3298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{9C272BD0-2E1A-4327-A447-706741D441CD}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ESTIMATEInv2010</RootNamespace>
+    <AssemblyName>ESTIMATEInv2010</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>ESTIMATEInv2010.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
+    <DeployIisAppPath>Default Web Site/ESTIMATEInv2010Publicar</DeployIisAppPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>ESTIMATEInv2010.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.1.40412.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="CINCOEntidades, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\CINCOEntidades.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="KeySortDropDownList, Version=1.0.1588.37647, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\KeySortDropDownList.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="Catalogos\frmEscogerAno_dtl.aspx" />
+    <Content Include="Catalogos\frmEscogerEmpresa_dtl.aspx" />
+    <Content Include="Catalogos\frmEscogerObra_dtl.aspx" />
+    <Content Include="Catalogos\frmEscogerSubEmpresa_dtl.aspx" />
+    <Content Include="Catalogos\frmtbAnalisis_dtl.aspx" />
+    <Content Include="Catalogos\frmtbAnalisis_lst.aspx" />
+    <Content Include="Catalogos\frmtbBancoDatosProveedor_dtl.aspx" />
+    <Content Include="Catalogos\frmtbBancoDatosProveedor_lst.aspx" />
+    <Content Include="Catalogos\frmtbBancoDatosRecurso_dtl.aspx" />
+    <Content Include="Catalogos\frmtbBancoDatosRecurso_lst.aspx" />
+    <Content Include="Catalogos\frmtbBodegasCenCostos_dtl.aspx" />
+    <Content Include="Catalogos\frmtbBodegasCenCostos_lst.aspx" />
+    <Content Include="Catalogos\frmtbBodegas_dtl.aspx" />
+    <Content Include="Catalogos\frmtbBodegas_lst.aspx" />
+    <Content Include="Catalogos\frmtbCenCostosCuentas_dtl.aspx" />
+    <Content Include="Catalogos\frmtbCenCostos_dtl.aspx" />
+    <Content Include="Catalogos\frmtbCenCostos_lst.aspx" />
+    <Content Include="Catalogos\frmtbCodigosTablas_lst.aspx" />
+    <Content Include="Catalogos\frmtbConsecutivos_dtl.aspx" />
+    <Content Include="Catalogos\frmtbConsecutivos_lst.aspx" />
+    <Content Include="Catalogos\frmtbContratistas_dtl.aspx" />
+    <Content Include="Catalogos\frmtbContratistas_lst.aspx" />
+    <Content Include="Catalogos\frmtbDestinos_dtl.aspx" />
+    <Content Include="Catalogos\frmtbDestinos_lst.aspx" />
+    <Content Include="Catalogos\frmtbEmpresas_dtl.aspx" />
+    <Content Include="Catalogos\frmtbEmpresas_lst.aspx" />
+    <Content Include="Catalogos\frmtbGrupos_dtl.aspx" />
+    <Content Include="Catalogos\frmtbGrupos_lst.aspx" />
+    <Content Include="Catalogos\frmtbLapsos_dtl.aspx" />
+    <Content Include="Catalogos\frmtbLapsos_lst.aspx" />
+    <Content Include="Catalogos\frmtbLineas_dtl.aspx" />
+    <Content Include="Catalogos\frmtbLineas_lst.aspx" />
+    <Content Include="Catalogos\frmtbParametrosContables_dtl.aspx" />
+    <Content Include="Catalogos\frmtbParametrosContables_lst.aspx" />
+    <Content Include="Catalogos\frmtbPerfilesAprobaciones_dtl.aspx" />
+    <Content Include="Catalogos\frmtbPerfilesModulosSistema_lst.aspx" />
+    <Content Include="Catalogos\frmtbPerfilesSeguridad_dtl.aspx" />
+    <Content Include="Catalogos\frmtbPerfilesSeguridad_lst.aspx" />
+    <Content Include="Catalogos\frmtbProveedores_dtl.aspx" />
+    <Content Include="Catalogos\frmtbProveedores_lst.aspx" />
+    <Content Include="Catalogos\frmtbRecursos1_dtl.aspx" />
+    <Content Include="Catalogos\frmtbRecursos_dtl.aspx" />
+    <Content Include="Catalogos\frmtbRecursos_lst.aspx" />
+    <Content Include="Catalogos\frmtbRepresentantesDetalleCenCostos_lst.aspx" />
+    <Content Include="Catalogos\frmtbRepresentantesDetalle_dtl.aspx" />
+    <Content Include="Catalogos\frmtbRepresentantesDetalle_lst.aspx" />
+    <Content Include="Catalogos\frmtbRepresentantes_dtl.aspx" />
+    <Content Include="Catalogos\frmtbRepresentantes_lst.aspx" />
+    <Content Include="Catalogos\frmtbSeriales_dtl.aspx" />
+    <Content Include="Catalogos\frmtbSeriales_lst.aspx" />
+    <Content Include="Catalogos\frmtbSubEmpresas_dtl.aspx" />
+    <Content Include="Catalogos\frmtbSubEmpresas_lst.aspx" />
+    <Content Include="Catalogos\frmtbTercerosCompleto_dtl.aspx" />
+    <Content Include="Catalogos\frmtbTercerosImportaExcel_dtl.aspx" />
+    <Content Include="Catalogos\frmtbTiposComprobantes_dtl.aspx" />
+    <Content Include="Catalogos\frmtbTiposComprobantes_lst.aspx" />
+    <Content Include="Catalogos\frmtbTiposDocumentos1_lst.aspx" />
+    <Content Include="Catalogos\frmtbTiposDocumentos_dtl.aspx" />
+    <Content Include="Catalogos\frmtbTiposDocumentos_lst.aspx" />
+    <Content Include="Catalogos\frmtbTransacciones_dtl.aspx" />
+    <Content Include="Catalogos\frmtbTransacciones_lst.aspx" />
+    <Content Include="Catalogos\frmtbUsuariosBodegas_lst.aspx" />
+    <Content Include="Catalogos\frmtbUsuariosCenCostos_lst.aspx" />
+    <Content Include="Catalogos\frmtbUsuarios_dtl.aspx" />
+    <Content Include="Catalogos\frmtbUsuarios_lst.aspx" />
+    <Content Include="Consultas\frmTarjetaKardex_lst.aspx" />
+    <Content Include="Consultas\frmtbCenCostosRecursosMov_lst.aspx" />
+    <Content Include="Consultas\frmtbCenCostosRecursos_lst.aspx" />
+    <Content Include="Consultas\frmtbCenCostosSalidas_lst.aspx" />
+    <Content Include="Consultas\frmtbPresupuestoDetalleRecursosMov_lst.aspx" />
+    <Content Include="Consultas\frmtbPresupuestoDetalleRecursos_lst.aspx" />
+    <Content Include="Consultas\frmtbPresupuestoDetalleSalidas_lst.aspx" />
+    <Content Include="Consultas\frmtbProveedoresEntradas_lst.aspx" />
+    <Content Include="Consultas\frmtbProveedoresRecursosMov_lst.aspx" />
+    <Content Include="Consultas\frmtbProveedoresRecursos_lst.aspx" />
+    <Content Include="Consultas\frmtbRecursosCenCostosMov_lst.aspx" />
+    <Content Include="Consultas\frmtbRecursosCenCostos_lst.aspx" />
+    <Content Include="Consultas\frmtbRecursosEntradas_lst.aspx" />
+    <Content Include="Consultas\frmtbRecursosPresupuestoDetalleMov_lst.aspx" />
+    <Content Include="Consultas\frmtbRecursosPresupuestoDetalle_lst.aspx" />
+    <Content Include="Consultas\frmtbRecursosProveedoresMov_lst.aspx" />
+    <Content Include="Consultas\frmtbRecursosProveedores_lst.aspx" />
+    <Content Include="Consultas\frmtbRecursosSaldos_lst.aspx" />
+    <Content Include="Consultas\frmtbRecursosSalidas2_lst.aspx" />
+    <Content Include="Consultas\frmtbRecursosSalidas_lst.aspx" />
+    <Content Include="Contabilidad\frmtbCGBATCH1_dtl.aspx" />
+    <Content Include="Contabilidad\frmtbCGBATCH1_lst.aspx" />
+    <Content Include="Contabilidad\frmtbCGBATCH2Fac_dtl.aspx" />
+    <Content Include="Contabilidad\frmtbCGBATCH2_dtl.aspx" />
+    <Content Include="Contabilidad\frmtbCuentasPorPagar_dtl.aspx" />
+    <Content Include="Contabilidad\frmtbCuentasPorPagar_lst.aspx" />
+    <Content Include="Contabilidad\frmtbExportaMvtoExcel_dtl.aspx" />
+    <Content Include="Contabilidad\frmtbFacturasProveedorDetalle_lst.aspx" />
+    <Content Include="Contabilidad\frmtbFacturasProveedor_dtl.aspx" />
+    <Content Include="Contabilidad\frmtbFacturasProveedor_lst.aspx" />
+    <Content Include="Default2.aspx" />
+    <Content Include="frmCambioPassword_dtl.aspx" />
+    <Content Include="frmInicio_men.aspx" />
+    <Content Include="frmLogin.aspx" />
+    <Content Include="images\about-icon.png" />
+    <Content Include="images\about-icon2.png" />
+    <Content Include="images\agregar.png" />
+    <Content Include="images\arrow2.png" />
+    <Content Include="images\arrow_branch.png" />
+    <Content Include="images\arrow_left.png" />
+    <Content Include="images\arrow_right.png" />
+    <Content Include="images\AUTOFRMT.BMP" />
+    <Content Include="images\barCode1.jpg" />
+    <Content Include="images\barCode2.jpg" />
+    <Content Include="images\barCode3.jpg" />
+    <Content Include="images\barCode4.jpg" />
+    <Content Include="images\barCode5.jpg" />
+    <Content Include="images\barra.bmp" />
+    <Content Include="images\blankbt2.gif" />
+    <Content Include="images\block.gif" />
+    <Content Include="images\BLUE.BMP" />
+    <Content Include="images\BOTTOM.BMP" />
+    <Content Include="images\branch1.gif" />
+    <Content Include="images\branch1.png" />
+    <Content Include="images\break-icon.png" />
+    <Content Include="images\break-icon2.png" />
+    <Content Include="images\BROWSTBL.BMP" />
+    <Content Include="images\btn_lt_arrow_up.gif" />
+    <Content Include="images\btn_rt_arrow_up.gif" />
+    <Content Include="images\BUILDER.ICO" />
+    <Content Include="images\BULDOZER.BMP" />
+    <Content Include="images\CAT_Helmet-32x32.png" />
+    <Content Include="images\chart.gif" />
+    <Content Include="images\check-icon.png" />
+    <Content Include="images\check-icon2.png" />
+    <Content Include="images\CHECK.BMP" />
+    <Content Include="images\checkmrk.ico" />
+    <Content Include="images\chklst.gif" />
+    <Content Include="images\clipboard.gif" />
+    <Content Include="images\close-icon.png" />
+    <Content Include="images\close-icon2.png" />
+    <Content Include="images\CLOSE.BMP" />
+    <Content Include="images\closePopup.png" />
+    <Content Include="images\copy-icon.png" />
+    <Content Include="images\copy-icon2.png" />
+    <Content Include="images\CREDITC.BMP" />
+    <Content Include="images\cut-icon.png" />
+    <Content Include="images\cut-icon2.png" />
+    <Content Include="images\delete-sign.png" />
+    <Content Include="images\DELETE.BMP" />
+    <Content Include="images\delete.png" />
+    <Content Include="images\DOLLAR.ICO" />
+    <Content Include="images\down-icon.png" />
+    <Content Include="images\dsktool2.gif" />
+    <Content Include="images\EMPRESAS.BMP" />
+    <Content Include="images\ERASE.BMP" />
+    <Content Include="images\Erase1.png" />
+    <Content Include="images\Estimate.jpg" />
+    <Content Include="images\Eventos.jpg" />
+    <Content Include="images\Excel-32-d.gif" />
+    <Content Include="images\Excel-32.gif" />
+    <Content Include="images\Excel-48.gif" />
+    <Content Include="images\EXCLAIM.BMP" />
+    <Content Include="images\FACTORY.BMP" />
+    <Content Include="images\Files.ico" />
+    <Content Include="images\file_edit.png" />
+    <Content Include="images\FILTERON.BMP" />
+    <Content Include="images\FILTRDLG.BMP" />
+    <Content Include="images\FIRST.BMP" />
+    <Content Include="images\FLDROPN2.BMP" />
+    <Content Include="images\FLDROPN3.BMP" />
+    <Content Include="images\FORMATT1.BMP" />
+    <Content Include="images\FRSREC_S.BMP" />
+    <Content Include="images\icoFormArchive.jpg" />
+    <Content Include="images\icoFormAsignarPrograma.jpg" />
+    <Content Include="images\icoFormBack.gif" />
+    <Content Include="images\icoFormCancel.jpg" />
+    <Content Include="images\icoFormExecute.jpg" />
+    <Content Include="images\icoFormNew.jpg" />
+    <Content Include="images\icoFormPrint.jpg" />
+    <Content Include="images\icoFormProcess.jpg" />
+    <Content Include="images\icoFormSave.gif" />
+    <Content Include="images\icoFormSave.jpg" />
+    <Content Include="images\icoFormScore.gif" />
+    <Content Include="images\icoFormSearch.jpg" />
+    <Content Include="images\icoFormUpdate.png" />
+    <Content Include="images\icoGridPagerFirst.gif" />
+    <Content Include="images\icoGridPagerLast.gif" />
+    <Content Include="images\icoGridPagerNext.gif" />
+    <Content Include="images\icoGridPagerPrev.gif" />
+    <Content Include="images\icoKeys.gif" />
+    <Content Include="images\Icon_check.png" />
+    <Content Include="images\Icon_delete.png" />
+    <Content Include="images\icoOKSearch.gif" />
+    <Content Include="images\imgSDContentSubTitleBarBackGround.jpg" />
+    <Content Include="images\imgSDContentTitleBarBackGround.jpg" />
+    <Content Include="images\imgSDContentWarnTitleBarBackGround.jpg" />
+    <Content Include="images\imgSDLine.png" />
+    <Content Include="images\imgSDloader15x15.gif" />
+    <Content Include="images\imgSDloader20x20.gif" />
+    <Content Include="images\imgSDloader30x30.gif" />
+    <Content Include="images\imgVineta02.gif" />
+    <Content Include="images\JORNAL.BMP" />
+    <Content Include="images\KEY03.BMP" />
+    <Content Include="images\lightning_sign_16.png" />
+    <Content Include="images\LOCATE.BMP" />
+    <Content Include="images\Lock-32.png" />
+    <Content Include="images\Lock-icon.png" />
+    <Content Include="images\LOCK.BMP" />
+    <Content Include="images\lock.ico" />
+    <Content Include="images\Lock.png" />
+    <Content Include="images\logoConergia.png" />
+    <Content Include="images\LogoEstimate.jpg" />
+    <Content Include="images\logoMelendez.jpg" />
+    <Content Include="images\LogoMelendez2.jpg" />
+    <Content Include="images\LogoMelendezNit.jpg" />
+    <Content Include="images\logoSIOMiv.jpg" />
+    <Content Include="images\LSTREC_S.BMP" />
+    <Content Include="images\magnify.png" />
+    <Content Include="images\map-delete.png" />
+    <Content Include="images\MONEYPAK.BMP" />
+    <Content Include="images\new-icon.png" />
+    <Content Include="images\new-icon2.png" />
+    <Content Include="images\NEWEX.BMP" />
+    <Content Include="images\NXTREC_S.BMP" />
+    <Content Include="images\OK.BMP" />
+    <Content Include="images\OK.png" />
+    <Content Include="images\open-icon.png" />
+    <Content Include="images\open-icon2.png" />
+    <Content Include="images\paste-icon.png" />
+    <Content Include="images\paste-icon2.png" />
+    <Content Include="images\Plus.png" />
+    <Content Include="images\POINTER.BMP" />
+    <Content Include="images\print3.gif" />
+    <Content Include="images\print5.jpg" />
+    <Content Include="images\PRVREC_S.BMP" />
+    <Content Include="images\REMOVTBL.BMP" />
+    <Content Include="images\Search1.jpg" />
+    <Content Include="images\Search2.jpg" />
+    <Content Include="images\Search5.jpg" />
+    <Content Include="images\search6.jpg" />
+    <Content Include="images\selectedtab.GIF" />
+    <Content Include="images\synchronize_24.png" />
+    <Content Include="images\TOP.BMP" />
+    <Content Include="images\TRFFC19B.ICO" />
+    <Content Include="images\unselectedtab.GIF" />
+    <Content Include="images\up-icon.png" />
+    <Content Include="images\UPDATE.ICO" />
+    <Content Include="images\WHITE.BMP" />
+    <Content Include="images\WZEDIT.BMP" />
+    <Content Include="images\WZLOCATE.BMP" />
+    <Content Include="images\WZNEW.BMP" />
+    <Content Include="images\WZPRINT.BMP" />
+    <Content Include="images\WZSAVE.BMP" />
+    <Content Include="images\WZUNDO.BMP" />
+    <Content Include="images\_save.bmp" />
+    <Content Include="Informes\frmCatalogosInformes.aspx" />
+    <Content Include="Informes\frmCatalogosParametros_dtl.aspx" />
+    <Content Include="Informes\frmCenCostosInformes.aspx" />
+    <Content Include="Informes\frmCenCostosParametros_dtl.aspx" />
+    <Content Include="Informes\frmComparativosImprime2_dtl.aspx" />
+    <Content Include="Informes\frmComparativosImprime_dtl.aspx" />
+    <Content Include="Informes\frmComparativosInformes.aspx" />
+    <Content Include="Informes\frmComprasInformes.aspx" />
+    <Content Include="Informes\frmComprasParametros_dtl.aspx" />
+    <Content Include="Informes\frmContratistasParametros_dtl.aspx" />
+    <Content Include="Informes\frmDestinosInformes.aspx" />
+    <Content Include="Informes\frmDestinosParametros_dtl.aspx" />
+    <Content Include="Informes\frmElementosEspaciosInformes.aspx" />
+    <Content Include="Informes\frmElementosEspaciosParametros_dtl.aspx" />
+    <Content Include="Informes\frmElementosUnidadesInformes.aspx" />
+    <Content Include="Informes\frmElementosUnidadesParametros_dtl.aspx" />
+    <Content Include="Informes\frmExplosionInformes_dtl.aspx" />
+    <Content Include="Informes\frmExplosionParametros.aspx" />
+    <Content Include="Informes\frmFacturasCompraInformes.aspx" />
+    <Content Include="Informes\frmInventarioDocInformes.aspx" />
+    <Content Include="Informes\frmInventarioInformes.aspx" />
+    <Content Include="Informes\frmInventarioParametros_dtl.aspx" />
+    <Content Include="Informes\frmInvParametrosDocumentos_dtlaspx.aspx" />
+    <Content Include="Informes\frmMovimientosInformesRep_dtl.aspx" />
+    <Content Include="Informes\frmMovimientosInformes_dtl.aspx" />
+    <Content Include="Informes\frmOrdenesAjusteImprime_dtl.aspx" />
+    <Content Include="Informes\frmOrdenesCompraImprime_dtl.aspx" />
+    <Content Include="Informes\frmOrdenesCompraInformes.aspx" />
+    <Content Include="Informes\frmOrdenesCompraParametros_dtl.aspx" />
+    <Content Include="Informes\frmPresupuestoDetalleInformes.aspx" />
+    <Content Include="Informes\frmPresupuestoDetalleParametros_dtl.aspx" />
+    <Content Include="Informes\frmProveedoresInformes.aspx" />
+    <Content Include="Informes\frmProveedoresParametros_dtl.aspx" />
+    <Content Include="Informes\frmRecursosInformes.aspx" />
+    <Content Include="Informes\frmRecursosParametros_dtl.aspx" />
+    <Content Include="Informes\frmRequisicionesImprime_dtl.aspx" />
+    <Content Include="Informes\frmRequisicionesInformes.aspx" />
+    <Content Include="Informes\frmSaldosRecursosInformes.aspx" />
+    <Content Include="Informes\frmSaldosRecursosParametros_dtl.aspx" />
+    <Content Include="Informes\frmtbInventarioComInformes.aspx" />
+    <Content Include="Informes\frmComparativosParametros_dtl.aspx" />
+    <Content Include="Informes\frmRequisicionesParametros_dtl.aspx" />
+    <Content Include="Informes\frmTiposDocumentosInformes.aspx" />
+    <Content Include="Informes\frmTiposDocumentosRelacion_dtl.aspx" />
+    <Content Include="Informes\frmTotalesPorBodegasInformes.aspx" />
+    <Content Include="Informes\frmTotalesPorBodegasParametros_dtl.aspx" />
+    <Content Include="Movimientos\frmtbAnalisisDetalle_dtl.aspx" />
+    <Content Include="Movimientos\frmtbAnalisis_dtl.aspx" />
+    <Content Include="Movimientos\frmtbBancoDatos_dtl.aspx" />
+    <Content Include="Movimientos\frmtbBancoDatos_lst.aspx" />
+    <Content Include="Movimientos\frmtbComparativosDetalle_dtl.aspx" />
+    <Content Include="Movimientos\frmtbComparativos_dtl.aspx" />
+    <Content Include="Movimientos\frmtbComparativos_lst.aspx" />
+    <Content Include="Movimientos\frmtbDevolucionesComprasDetalle_dtl.aspx" />
+    <Content Include="Movimientos\frmtbDevolucionesCompras_dtl.aspx" />
+    <Content Include="Movimientos\frmtbDevolucionesCompras_lst.aspx" />
+    <Content Include="Informes\frmtbExplosion_dtl.aspx" />
+    <Content Include="Movimientos\frmtbExplosionPresupuestoDetalle_lst.aspx" />
+    <Content Include="Movimientos\frmtbExplosion_dtl.aspx" />
+    <Content Include="Movimientos\frmtbExplosion_lst.aspx" />
+    <Content Include="Movimientos\frmtbFacturasCompraDetalle_dtl.aspx" />
+    <Content Include="Movimientos\frmtbFacturasCompraDetalle_lst.aspx" />
+    <Content Include="Movimientos\frmtbFacturasCompra_dtl.aspx" />
+    <Content Include="Movimientos\frmtbFacturasCompra_lst.aspx" />
+    <Content Include="Movimientos\frmtbInventarioDetalleEnt_dtl.aspx" />
+    <Content Include="Movimientos\frmtbInventarioDetalleESO_dtl.aspx" />
+    <Content Include="Movimientos\frmtbInventarioDetalleEU_dtl.aspx" />
+    <Content Include="Movimientos\frmtbInventarioDetalleSalCons_dtl.aspx" />
+    <Content Include="Movimientos\frmtbInventarioDetalle_dtl.aspx" />
+    <Content Include="Movimientos\frmtbInventario_dtl.aspx" />
+    <Content Include="Movimientos\frmtbInventario_lst.aspx" />
+    <Content Include="Movimientos\frmtbMovInvDetConsumosPorExp_lst.aspx" />
+    <Content Include="Movimientos\frmtbOrdenesAjusteDetalle_dtl.aspx" />
+    <Content Include="Movimientos\frmtbOrdenesAjuste_dtl.aspx" />
+    <Content Include="Movimientos\frmtbOrdenesAjuste_lst.aspx" />
+    <Content Include="Movimientos\frmtbOrdenesCompraDetalle_dtl.aspx" />
+    <Content Include="Movimientos\frmtbOrdenesCompraGenerarEntradaSalida_dtl.aspx" />
+    <Content Include="Movimientos\frmtbOrdenesCompraGenerarEntrada_dtl.aspx" />
+    <Content Include="Movimientos\frmtbOrdenesCompra_dtl.aspx" />
+    <Content Include="Movimientos\frmtbOrdenesCompra_lst.aspx" />
+    <Content Include="Movimientos\frmtbPaginar_dtl.aspx" />
+    <Content Include="Movimientos\frmtbPresupuestoDetalle_dtl.aspx" />
+    <Content Include="Movimientos\frmtbRequisicionesDetalleAnular_dtl.aspx" />
+    <Content Include="Movimientos\frmtbRequisicionesDetallePedidos_lst.aspx" />
+    <Content Include="Movimientos\frmtbRequisicionesDetalleTransferidos_dtl.aspx" />
+    <Content Include="Movimientos\frmtbRequisicionesDetalle_dtl.aspx" />
+    <Content Include="Movimientos\frmtbRequisicionesPresupuestoDetalle_dtl.aspx" />
+    <Content Include="Movimientos\frmtbRequisiciones_dtl.aspx" />
+    <Content Include="Movimientos\frmtbRequisiciones_lst.aspx" />
+    <Content Include="Movimientos\frmtbSaldosDisponibles2_lst.aspx" />
+    <Content Include="Movimientos\Test.aspx" />
+    <Content Include="Procesos\frmAbreLapso_dtl.aspx" />
+    <Content Include="Procesos\frmCierreLapso_dtl.aspx" />
+    <Content Include="Procesos\frmReaplicaAContabilidad_dt.aspx" />
+    <Content Include="Procesos\frmReAplicacionInventario_dtl.aspx" />
+    <Content Include="Scripts\General.js" />
+    <Content Include="Scripts\grvControl.js" />
+    <Content Include="StyleSheet.css" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Styles\Styles.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.aspx.designer.vb">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="About.aspx.vb">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.designer.vb">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.vb">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.vb">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.vb">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.vb">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.vb">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.vb">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.vb">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmEscogerAno_dtl.aspx.designer.vb">
+      <DependentUpon>frmEscogerAno_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmEscogerAno_dtl.aspx.vb">
+      <DependentUpon>frmEscogerAno_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmEscogerEmpresa_dtl.aspx.designer.vb">
+      <DependentUpon>frmEscogerEmpresa_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmEscogerEmpresa_dtl.aspx.vb">
+      <DependentUpon>frmEscogerEmpresa_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmEscogerObra_dtl.aspx.designer.vb">
+      <DependentUpon>frmEscogerObra_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmEscogerObra_dtl.aspx.vb">
+      <DependentUpon>frmEscogerObra_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmEscogerSubEmpresa_dtl.aspx.designer.vb">
+      <DependentUpon>frmEscogerSubEmpresa_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmEscogerSubEmpresa_dtl.aspx.vb">
+      <DependentUpon>frmEscogerSubEmpresa_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbAnalisis_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbAnalisis_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbAnalisis_dtl.aspx.vb">
+      <DependentUpon>frmtbAnalisis_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbAnalisis_lst.aspx.designer.vb">
+      <DependentUpon>frmtbAnalisis_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbAnalisis_lst.aspx.vb">
+      <DependentUpon>frmtbAnalisis_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbBancoDatosProveedor_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbBancoDatosProveedor_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbBancoDatosProveedor_dtl.aspx.vb">
+      <DependentUpon>frmtbBancoDatosProveedor_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbBancoDatosProveedor_lst.aspx.designer.vb">
+      <DependentUpon>frmtbBancoDatosProveedor_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbBancoDatosProveedor_lst.aspx.vb">
+      <DependentUpon>frmtbBancoDatosProveedor_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbBancoDatosRecurso_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbBancoDatosRecurso_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbBancoDatosRecurso_dtl.aspx.vb">
+      <DependentUpon>frmtbBancoDatosRecurso_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbBancoDatosRecurso_lst.aspx.designer.vb">
+      <DependentUpon>frmtbBancoDatosRecurso_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbBancoDatosRecurso_lst.aspx.vb">
+      <DependentUpon>frmtbBancoDatosRecurso_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbBodegasCenCostos_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbBodegasCenCostos_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbBodegasCenCostos_dtl.aspx.vb">
+      <DependentUpon>frmtbBodegasCenCostos_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbBodegasCenCostos_lst.aspx.designer.vb">
+      <DependentUpon>frmtbBodegasCenCostos_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbBodegasCenCostos_lst.aspx.vb">
+      <DependentUpon>frmtbBodegasCenCostos_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbBodegas_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbBodegas_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbBodegas_dtl.aspx.vb">
+      <DependentUpon>frmtbBodegas_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbBodegas_lst.aspx.designer.vb">
+      <DependentUpon>frmtbBodegas_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbBodegas_lst.aspx.vb">
+      <DependentUpon>frmtbBodegas_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbCenCostosCuentas_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbCenCostosCuentas_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbCenCostosCuentas_dtl.aspx.vb">
+      <DependentUpon>frmtbCenCostosCuentas_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbCenCostos_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbCenCostos_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbCenCostos_dtl.aspx.vb">
+      <DependentUpon>frmtbCenCostos_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbCenCostos_lst.aspx.designer.vb">
+      <DependentUpon>frmtbCenCostos_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbCenCostos_lst.aspx.vb">
+      <DependentUpon>frmtbCenCostos_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbCodigosTablas_lst.aspx.designer.vb">
+      <DependentUpon>frmtbCodigosTablas_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbCodigosTablas_lst.aspx.vb">
+      <DependentUpon>frmtbCodigosTablas_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbConsecutivos_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbConsecutivos_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbConsecutivos_dtl.aspx.vb">
+      <DependentUpon>frmtbConsecutivos_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbConsecutivos_lst.aspx.designer.vb">
+      <DependentUpon>frmtbConsecutivos_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbConsecutivos_lst.aspx.vb">
+      <DependentUpon>frmtbConsecutivos_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbContratistas_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbContratistas_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbContratistas_dtl.aspx.vb">
+      <DependentUpon>frmtbContratistas_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbContratistas_lst.aspx.designer.vb">
+      <DependentUpon>frmtbContratistas_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbContratistas_lst.aspx.vb">
+      <DependentUpon>frmtbContratistas_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbDestinos_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbDestinos_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbDestinos_dtl.aspx.vb">
+      <DependentUpon>frmtbDestinos_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbDestinos_lst.aspx.designer.vb">
+      <DependentUpon>frmtbDestinos_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbDestinos_lst.aspx.vb">
+      <DependentUpon>frmtbDestinos_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbEmpresas_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbEmpresas_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbEmpresas_dtl.aspx.vb">
+      <DependentUpon>frmtbEmpresas_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbEmpresas_lst.aspx.designer.vb">
+      <DependentUpon>frmtbEmpresas_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbEmpresas_lst.aspx.vb">
+      <DependentUpon>frmtbEmpresas_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbGrupos_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbGrupos_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbGrupos_dtl.aspx.vb">
+      <DependentUpon>frmtbGrupos_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbGrupos_lst.aspx.designer.vb">
+      <DependentUpon>frmtbGrupos_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbGrupos_lst.aspx.vb">
+      <DependentUpon>frmtbGrupos_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbLapsos_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbLapsos_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbLapsos_dtl.aspx.vb">
+      <DependentUpon>frmtbLapsos_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbLapsos_lst.aspx.designer.vb">
+      <DependentUpon>frmtbLapsos_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbLapsos_lst.aspx.vb">
+      <DependentUpon>frmtbLapsos_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbLineas_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbLineas_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbLineas_dtl.aspx.vb">
+      <DependentUpon>frmtbLineas_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbLineas_lst.aspx.designer.vb">
+      <DependentUpon>frmtbLineas_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbLineas_lst.aspx.vb">
+      <DependentUpon>frmtbLineas_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbParametrosContables_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbParametrosContables_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbParametrosContables_dtl.aspx.vb">
+      <DependentUpon>frmtbParametrosContables_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbParametrosContables_lst.aspx.designer.vb">
+      <DependentUpon>frmtbParametrosContables_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbParametrosContables_lst.aspx.vb">
+      <DependentUpon>frmtbParametrosContables_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbPerfilesAprobaciones_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbPerfilesAprobaciones_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbPerfilesAprobaciones_dtl.aspx.vb">
+      <DependentUpon>frmtbPerfilesAprobaciones_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbPerfilesModulosSistema_lst.aspx.designer.vb">
+      <DependentUpon>frmtbPerfilesModulosSistema_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbPerfilesModulosSistema_lst.aspx.vb">
+      <DependentUpon>frmtbPerfilesModulosSistema_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbPerfilesSeguridad_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbPerfilesSeguridad_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbPerfilesSeguridad_dtl.aspx.vb">
+      <DependentUpon>frmtbPerfilesSeguridad_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbPerfilesSeguridad_lst.aspx.designer.vb">
+      <DependentUpon>frmtbPerfilesSeguridad_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbPerfilesSeguridad_lst.aspx.vb">
+      <DependentUpon>frmtbPerfilesSeguridad_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbProveedores_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbProveedores_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbProveedores_dtl.aspx.vb">
+      <DependentUpon>frmtbProveedores_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbProveedores_lst.aspx.designer.vb">
+      <DependentUpon>frmtbProveedores_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbProveedores_lst.aspx.vb">
+      <DependentUpon>frmtbProveedores_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbRecursos1_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbRecursos1_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbRecursos1_dtl.aspx.vb">
+      <DependentUpon>frmtbRecursos1_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbRecursos_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbRecursos_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbRecursos_dtl.aspx.vb">
+      <DependentUpon>frmtbRecursos_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbRecursos_lst.aspx.designer.vb">
+      <DependentUpon>frmtbRecursos_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbRecursos_lst.aspx.vb">
+      <DependentUpon>frmtbRecursos_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbRepresentantesDetalleCenCostos_lst.aspx.designer.vb">
+      <DependentUpon>frmtbRepresentantesDetalleCenCostos_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbRepresentantesDetalleCenCostos_lst.aspx.vb">
+      <DependentUpon>frmtbRepresentantesDetalleCenCostos_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbRepresentantesDetalle_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbRepresentantesDetalle_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbRepresentantesDetalle_dtl.aspx.vb">
+      <DependentUpon>frmtbRepresentantesDetalle_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbRepresentantesDetalle_lst.aspx.designer.vb">
+      <DependentUpon>frmtbRepresentantesDetalle_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbRepresentantesDetalle_lst.aspx.vb">
+      <DependentUpon>frmtbRepresentantesDetalle_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbRepresentantes_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbRepresentantes_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbRepresentantes_dtl.aspx.vb">
+      <DependentUpon>frmtbRepresentantes_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbRepresentantes_lst.aspx.designer.vb">
+      <DependentUpon>frmtbRepresentantes_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbRepresentantes_lst.aspx.vb">
+      <DependentUpon>frmtbRepresentantes_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbSeriales_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbSeriales_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbSeriales_dtl.aspx.vb">
+      <DependentUpon>frmtbSeriales_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbSeriales_lst.aspx.designer.vb">
+      <DependentUpon>frmtbSeriales_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbSeriales_lst.aspx.vb">
+      <DependentUpon>frmtbSeriales_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbSubEmpresas_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbSubEmpresas_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbSubEmpresas_dtl.aspx.vb">
+      <DependentUpon>frmtbSubEmpresas_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbSubEmpresas_lst.aspx.designer.vb">
+      <DependentUpon>frmtbSubEmpresas_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbSubEmpresas_lst.aspx.vb">
+      <DependentUpon>frmtbSubEmpresas_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbTercerosCompleto_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbTercerosCompleto_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbTercerosCompleto_dtl.aspx.vb">
+      <DependentUpon>frmtbTercerosCompleto_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbTercerosImportaExcel_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbTercerosImportaExcel_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbTercerosImportaExcel_dtl.aspx.vb">
+      <DependentUpon>frmtbTercerosImportaExcel_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbTiposComprobantes_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbTiposComprobantes_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbTiposComprobantes_dtl.aspx.vb">
+      <DependentUpon>frmtbTiposComprobantes_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbTiposComprobantes_lst.aspx.designer.vb">
+      <DependentUpon>frmtbTiposComprobantes_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbTiposComprobantes_lst.aspx.vb">
+      <DependentUpon>frmtbTiposComprobantes_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbTiposDocumentos1_lst.aspx.designer.vb">
+      <DependentUpon>frmtbTiposDocumentos1_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbTiposDocumentos1_lst.aspx.vb">
+      <DependentUpon>frmtbTiposDocumentos1_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbTiposDocumentos_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbTiposDocumentos_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbTiposDocumentos_dtl.aspx.vb">
+      <DependentUpon>frmtbTiposDocumentos_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbTiposDocumentos_lst.aspx.designer.vb">
+      <DependentUpon>frmtbTiposDocumentos_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbTiposDocumentos_lst.aspx.vb">
+      <DependentUpon>frmtbTiposDocumentos_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbTransacciones_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbTransacciones_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbTransacciones_dtl.aspx.vb">
+      <DependentUpon>frmtbTransacciones_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbTransacciones_lst.aspx.designer.vb">
+      <DependentUpon>frmtbTransacciones_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbTransacciones_lst.aspx.vb">
+      <DependentUpon>frmtbTransacciones_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbUsuariosBodegas_lst.aspx.designer.vb">
+      <DependentUpon>frmtbUsuariosBodegas_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbUsuariosBodegas_lst.aspx.vb">
+      <DependentUpon>frmtbUsuariosBodegas_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbUsuariosCenCostos_lst.aspx.designer.vb">
+      <DependentUpon>frmtbUsuariosCenCostos_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbUsuariosCenCostos_lst.aspx.vb">
+      <DependentUpon>frmtbUsuariosCenCostos_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbUsuarios_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbUsuarios_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbUsuarios_dtl.aspx.vb">
+      <DependentUpon>frmtbUsuarios_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\frmtbUsuarios_lst.aspx.designer.vb">
+      <DependentUpon>frmtbUsuarios_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\frmtbUsuarios_lst.aspx.vb">
+      <DependentUpon>frmtbUsuarios_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CincoV10DataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CincoV10DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\frmTarjetaKardex_lst.aspx.designer.vb">
+      <DependentUpon>frmTarjetaKardex_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\frmTarjetaKardex_lst.aspx.vb">
+      <DependentUpon>frmTarjetaKardex_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\frmtbCenCostosRecursosMov_lst.aspx.designer.vb">
+      <DependentUpon>frmtbCenCostosRecursosMov_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\frmtbCenCostosRecursosMov_lst.aspx.vb">
+      <DependentUpon>frmtbCenCostosRecursosMov_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\frmtbCenCostosRecursos_lst.aspx.designer.vb">
+      <DependentUpon>frmtbCenCostosRecursos_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\frmtbCenCostosRecursos_lst.aspx.vb">
+      <DependentUpon>frmtbCenCostosRecursos_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\frmtbCenCostosSalidas_lst.aspx.designer.vb">
+      <DependentUpon>frmtbCenCostosSalidas_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\frmtbCenCostosSalidas_lst.aspx.vb">
+      <DependentUpon>frmtbCenCostosSalidas_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\frmtbPresupuestoDetalleRecursosMov_lst.aspx.designer.vb">
+      <DependentUpon>frmtbPresupuestoDetalleRecursosMov_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\frmtbPresupuestoDetalleRecursosMov_lst.aspx.vb">
+      <DependentUpon>frmtbPresupuestoDetalleRecursosMov_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\frmtbPresupuestoDetalleRecursos_lst.aspx.designer.vb">
+      <DependentUpon>frmtbPresupuestoDetalleRecursos_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\frmtbPresupuestoDetalleRecursos_lst.aspx.vb">
+      <DependentUpon>frmtbPresupuestoDetalleRecursos_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\frmtbPresupuestoDetalleSalidas_lst.aspx.designer.vb">
+      <DependentUpon>frmtbPresupuestoDetalleSalidas_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\frmtbPresupuestoDetalleSalidas_lst.aspx.vb">
+      <DependentUpon>frmtbPresupuestoDetalleSalidas_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\frmtbProveedoresEntradas_lst.aspx.designer.vb">
+      <DependentUpon>frmtbProveedoresEntradas_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\frmtbProveedoresEntradas_lst.aspx.vb">
+      <DependentUpon>frmtbProveedoresEntradas_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\frmtbProveedoresRecursosMov_lst.aspx.designer.vb">
+      <DependentUpon>frmtbProveedoresRecursosMov_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\frmtbProveedoresRecursosMov_lst.aspx.vb">
+      <DependentUpon>frmtbProveedoresRecursosMov_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\frmtbProveedoresRecursos_lst.aspx.designer.vb">
+      <DependentUpon>frmtbProveedoresRecursos_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\frmtbProveedoresRecursos_lst.aspx.vb">
+      <DependentUpon>frmtbProveedoresRecursos_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\frmtbRecursosCenCostosMov_lst.aspx.designer.vb">
+      <DependentUpon>frmtbRecursosCenCostosMov_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\frmtbRecursosCenCostosMov_lst.aspx.vb">
+      <DependentUpon>frmtbRecursosCenCostosMov_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\frmtbRecursosCenCostos_lst.aspx.designer.vb">
+      <DependentUpon>frmtbRecursosCenCostos_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\frmtbRecursosCenCostos_lst.aspx.vb">
+      <DependentUpon>frmtbRecursosCenCostos_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\frmtbRecursosEntradas_lst.aspx.designer.vb">
+      <DependentUpon>frmtbRecursosEntradas_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\frmtbRecursosEntradas_lst.aspx.vb">
+      <DependentUpon>frmtbRecursosEntradas_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\frmtbRecursosPresupuestoDetalleMov_lst.aspx.designer.vb">
+      <DependentUpon>frmtbRecursosPresupuestoDetalleMov_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\frmtbRecursosPresupuestoDetalleMov_lst.aspx.vb">
+      <DependentUpon>frmtbRecursosPresupuestoDetalleMov_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\frmtbRecursosPresupuestoDetalle_lst.aspx.designer.vb">
+      <DependentUpon>frmtbRecursosPresupuestoDetalle_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\frmtbRecursosPresupuestoDetalle_lst.aspx.vb">
+      <DependentUpon>frmtbRecursosPresupuestoDetalle_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\frmtbRecursosProveedoresMov_lst.aspx.designer.vb">
+      <DependentUpon>frmtbRecursosProveedoresMov_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\frmtbRecursosProveedoresMov_lst.aspx.vb">
+      <DependentUpon>frmtbRecursosProveedoresMov_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\frmtbRecursosProveedores_lst.aspx.designer.vb">
+      <DependentUpon>frmtbRecursosProveedores_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\frmtbRecursosProveedores_lst.aspx.vb">
+      <DependentUpon>frmtbRecursosProveedores_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\frmtbRecursosSaldos_lst.aspx.designer.vb">
+      <DependentUpon>frmtbRecursosSaldos_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\frmtbRecursosSaldos_lst.aspx.vb">
+      <DependentUpon>frmtbRecursosSaldos_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\frmtbRecursosSalidas2_lst.aspx.designer.vb">
+      <DependentUpon>frmtbRecursosSalidas2_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\frmtbRecursosSalidas2_lst.aspx.vb">
+      <DependentUpon>frmtbRecursosSalidas2_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\frmtbRecursosSalidas_lst.aspx.designer.vb">
+      <DependentUpon>frmtbRecursosSalidas_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\frmtbRecursosSalidas_lst.aspx.vb">
+      <DependentUpon>frmtbRecursosSalidas_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\frmtbCGBATCH1_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbCGBATCH1_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\frmtbCGBATCH1_dtl.aspx.vb">
+      <DependentUpon>frmtbCGBATCH1_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\frmtbCGBATCH1_lst.aspx.designer.vb">
+      <DependentUpon>frmtbCGBATCH1_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\frmtbCGBATCH1_lst.aspx.vb">
+      <DependentUpon>frmtbCGBATCH1_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\frmtbCGBATCH2Fac_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbCGBATCH2Fac_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\frmtbCGBATCH2Fac_dtl.aspx.vb">
+      <DependentUpon>frmtbCGBATCH2Fac_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\frmtbCGBATCH2_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbCGBATCH2_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\frmtbCGBATCH2_dtl.aspx.vb">
+      <DependentUpon>frmtbCGBATCH2_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\frmtbCuentasPorPagar_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbCuentasPorPagar_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\frmtbCuentasPorPagar_dtl.aspx.vb">
+      <DependentUpon>frmtbCuentasPorPagar_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\frmtbCuentasPorPagar_lst.aspx.designer.vb">
+      <DependentUpon>frmtbCuentasPorPagar_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\frmtbCuentasPorPagar_lst.aspx.vb">
+      <DependentUpon>frmtbCuentasPorPagar_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\frmtbExportaMvtoExcel_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbExportaMvtoExcel_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\frmtbExportaMvtoExcel_dtl.aspx.vb">
+      <DependentUpon>frmtbExportaMvtoExcel_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\frmtbFacturasProveedorDetalle_lst.aspx.designer.vb">
+      <DependentUpon>frmtbFacturasProveedorDetalle_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\frmtbFacturasProveedorDetalle_lst.aspx.vb">
+      <DependentUpon>frmtbFacturasProveedorDetalle_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\frmtbFacturasProveedor_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbFacturasProveedor_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\frmtbFacturasProveedor_dtl.aspx.vb">
+      <DependentUpon>frmtbFacturasProveedor_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\frmtbFacturasProveedor_lst.aspx.designer.vb">
+      <DependentUpon>frmtbFacturasProveedor_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\frmtbFacturasProveedor_lst.aspx.vb">
+      <DependentUpon>frmtbFacturasProveedor_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default2.aspx.designer.vb">
+      <DependentUpon>Default2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default2.aspx.vb">
+      <DependentUpon>Default2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\DSAcumuladoMaterialesPorItem.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSAcumuladoMaterialesPorItem.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DSMovimientos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSMovimientos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DSTotalesPorItemsPresupuesto.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSTotalesPorItemsPresupuesto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_AcumuladoElementosUnidadesPorRecurso.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_AcumuladoElementosUnidadesPorRecurso.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_AcumuladoEspaciosPorRecurso.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_AcumuladoEspaciosPorRecurso.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_AcumuladoMaterialesPorElementoEspacio.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_AcumuladoMaterialesPorElementoEspacio.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_AcumuladoMaterialesPorElementoUnidad.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_AcumuladoMaterialesPorElementoUnidad.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_cat_tbAnalisis.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_cat_tbAnalisis.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_cat_tbContratistas.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_cat_tbContratistas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_cat_tbGrupos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_cat_tbGrupos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_cat_tbLapsos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_cat_tbLapsos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_cat_tbLineas.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_cat_tbLineas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_cat_tbPerfilesSeguridad.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_cat_tbPerfilesSeguridad.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_cat_tbProveedores.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_cat_tbProveedores.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_cat_tbTiposComprobantes.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_cat_tbTiposComprobantes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_cat_tbTiposDocumentos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_cat_tbTiposDocumentos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_cat_tbTransacciones.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_cat_tbTransacciones.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_cat_tbUsuarios.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_cat_tbUsuarios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_ComprasRecursosVsPresupuesto.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_ComprasRecursosVsPresupuesto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_com_tbComparativo_lista.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_com_tbComparativo_lista.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_ExplosionRecursosPorItemPpto.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_ExplosionRecursosPorItemPpto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_MovimientoElementosUnidadesPorRecurso.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_MovimientoElementosUnidadesPorRecurso.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_MovimientoEspaciosPorRecurso.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_MovimientoEspaciosPorRecurso.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_MovimientoMaterialesPorElementoEspacio.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_MovimientoMaterialesPorElementoEspacio.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_MovimientoMaterialesPorElementoUnidad.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_MovimientoMaterialesPorElementoUnidad.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_MovimientoMaterialesPorItemPresupuesto.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_MovimientoMaterialesPorItemPresupuesto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_RelacionTiposDocumentos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_RelacionTiposDocumentos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_RequisicionesNoCumplidas.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_RequisicionesNoCumplidas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbComparativos_Lista2.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbComparativos_Lista2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbExplosion_AnalisisPorRecurso.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbExplosion_AnalisisPorRecurso.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbExplosion_Totales.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbExplosion_Totales.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbFacturasCompra_ListaDocumento.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbFacturasCompra_ListaDocumento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbInventario_RangoDocumentosEnt.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbInventario_RangoDocumentosEnt.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbInventario_RangoDocumentosSal.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbInventario_RangoDocumentosSal.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbOrdenesAjuste_ListaDocumento.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbOrdenesAjuste_ListaDocumento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbOrdenesCompra_ListaDocumento.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbOrdenesCompra_ListaDocumento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbOrdenesCompra_NoCumplidas.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbOrdenesCompra_NoCumplidas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbOrdenesCompra_OrdenesPorProveedor.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbOrdenesCompra_OrdenesPorProveedor.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbOrdenesCompra_OrdenesPorRecurso.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbOrdenesCompra_OrdenesPorRecurso.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbOrdenesCompra_OrdResIva.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbOrdenesCompra_OrdResIva.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbOrdenesCompra_RangoDocumentos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbOrdenesCompra_RangoDocumentos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbOrdenesCompra_ResOrdCom.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbOrdenesCompra_ResOrdCom.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbOrdenesCompra_TotalesPorProveedor.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbOrdenesCompra_TotalesPorProveedor.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbOrdenesCompra_TotalesPorRecurso.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbOrdenesCompra_TotalesPorRecurso.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbRecursos_AcumuladoContratistasPorRecurso.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbRecursos_AcumuladoContratistasPorRecurso.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbRecursos_AcumuladoItemsPresupuestoPorRecurso.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbRecursos_AcumuladoItemsPresupuestoPorRecurso.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbRecursos_AcumuladoObrasPorRecurso.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbRecursos_AcumuladoObrasPorRecurso.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbRecursos_AcumuladoProveedoresPorRecurso.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbRecursos_AcumuladoProveedoresPorRecurso.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbRecursos_AcumuladoProyectosPorRecurso.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbRecursos_AcumuladoProyectosPorRecurso.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbRecursos_MovimientoContratistasPorRecurso.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbRecursos_MovimientoContratistasPorRecurso.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbRecursos_MovimientoItemsPresupuestoPorRecurso.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbRecursos_MovimientoItemsPresupuestoPorRecurso.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbRecursos_MovimientoProveedoresPorRecurso.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbRecursos_MovimientoProveedoresPorRecurso.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbRecursos_Saldos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbRecursos_Saldos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbRecursos_TarjetaKardex.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbRecursos_TarjetaKardex.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbRequisiciones_ListaDocumento.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbRequisiciones_ListaDocumento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbRequisiciones_RangoDocumentos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbRequisiciones_RangoDocumentos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbSubEmpresas_Catalogo.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbSubEmpresas_Catalogo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbTerceros_CatalogoProveedores.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbTerceros_CatalogoProveedores.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frmCambioPassword_dtl.aspx.designer.vb">
+      <DependentUpon>frmCambioPassword_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmCambioPassword_dtl.aspx.vb">
+      <DependentUpon>frmCambioPassword_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmInicio_men.aspx.designer.vb">
+      <DependentUpon>frmInicio_men.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmInicio_men.aspx.vb">
+      <DependentUpon>frmInicio_men.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmLogin.aspx.designer.vb">
+      <DependentUpon>frmLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.aspx.vb">
+      <DependentUpon>frmLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Global.asax.vb">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DSAcumuladoRecursosPorCenCostos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSAcumuladoRecursosPorCenCostos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DSAcumuladoRecursosPorDestinos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSAcumuladoRecursosPorDestinos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DSDocumentoInventario.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSDocumentoInventario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DSMovimientoCenCostosPorRecurso.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSMovimientoCenCostosPorRecurso.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DSMovimientoDestinosPorRecurso.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSMovimientoDestinosPorRecurso.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DSMovimientoRecursosPorCenCostos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSMovimientoRecursosPorCenCostos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DSMovimientoRecursosPorDestinos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSMovimientoRecursosPorDestinos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DSTotalesPorCenCostos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSTotalesPorCenCostos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DSTotalesPorDestinos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSTotalesPorDestinos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_cat_tbBodegas.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_cat_tbBodegas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_OrdenesCompra_ListaDocVer.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_OrdenesCompra_ListaDocVer.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbCenCostos_Catalogo.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbCenCostos_Catalogo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbDestinos_Catalogo.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbDestinos_Catalogo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbEmpresas_Catalogo.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbEmpresas_Catalogo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_tbRecursos_CatalogoINV.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_tbRecursos_CatalogoINV.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_TotalesPorBodegas.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_TotalesPorBodegas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_TotalesPorElementoEspacio.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_TotalesPorElementoEspacio.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DS_TotalesPorElementoUnidad.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_TotalesPorElementoUnidad.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmCatalogosInformes.aspx.designer.vb">
+      <DependentUpon>frmCatalogosInformes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmCatalogosInformes.aspx.vb">
+      <DependentUpon>frmCatalogosInformes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmCatalogosParametros_dtl.aspx.designer.vb">
+      <DependentUpon>frmCatalogosParametros_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmCatalogosParametros_dtl.aspx.vb">
+      <DependentUpon>frmCatalogosParametros_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmCenCostosInformes.aspx.designer.vb">
+      <DependentUpon>frmCenCostosInformes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmCenCostosInformes.aspx.vb">
+      <DependentUpon>frmCenCostosInformes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmCenCostosParametros_dtl.aspx.designer.vb">
+      <DependentUpon>frmCenCostosParametros_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmCenCostosParametros_dtl.aspx.vb">
+      <DependentUpon>frmCenCostosParametros_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmComparativosImprime2_dtl.aspx.designer.vb">
+      <DependentUpon>frmComparativosImprime2_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmComparativosImprime2_dtl.aspx.vb">
+      <DependentUpon>frmComparativosImprime2_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmComparativosImprime_dtl.aspx.designer.vb">
+      <DependentUpon>frmComparativosImprime_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmComparativosImprime_dtl.aspx.vb">
+      <DependentUpon>frmComparativosImprime_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmComparativosInformes.aspx.designer.vb">
+      <DependentUpon>frmComparativosInformes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmComparativosInformes.aspx.vb">
+      <DependentUpon>frmComparativosInformes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmComprasInformes.aspx.designer.vb">
+      <DependentUpon>frmComprasInformes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmComprasInformes.aspx.vb">
+      <DependentUpon>frmComprasInformes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmComprasParametros_dtl.aspx.designer.vb">
+      <DependentUpon>frmComprasParametros_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmComprasParametros_dtl.aspx.vb">
+      <DependentUpon>frmComprasParametros_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmContratistasParametros_dtl.aspx.designer.vb">
+      <DependentUpon>frmContratistasParametros_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmContratistasParametros_dtl.aspx.vb">
+      <DependentUpon>frmContratistasParametros_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmDestinosInformes.aspx.designer.vb">
+      <DependentUpon>frmDestinosInformes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmDestinosInformes.aspx.vb">
+      <DependentUpon>frmDestinosInformes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmDestinosParametros_dtl.aspx.designer.vb">
+      <DependentUpon>frmDestinosParametros_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmDestinosParametros_dtl.aspx.vb">
+      <DependentUpon>frmDestinosParametros_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmElementosEspaciosInformes.aspx.designer.vb">
+      <DependentUpon>frmElementosEspaciosInformes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmElementosEspaciosInformes.aspx.vb">
+      <DependentUpon>frmElementosEspaciosInformes.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmElementosEspaciosParametros_dtl.aspx.designer.vb">
+      <DependentUpon>frmElementosEspaciosParametros_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmElementosEspaciosParametros_dtl.aspx.vb">
+      <DependentUpon>frmElementosEspaciosParametros_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmElementosUnidadesInformes.aspx.designer.vb">
+      <DependentUpon>frmElementosUnidadesInformes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmElementosUnidadesInformes.aspx.vb">
+      <DependentUpon>frmElementosUnidadesInformes.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmElementosUnidadesParametros_dtl.aspx.designer.vb">
+      <DependentUpon>frmElementosUnidadesParametros_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmElementosUnidadesParametros_dtl.aspx.vb">
+      <DependentUpon>frmElementosUnidadesParametros_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmExplosionInformes_dtl.aspx.designer.vb">
+      <DependentUpon>frmExplosionInformes_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmExplosionInformes_dtl.aspx.vb">
+      <DependentUpon>frmExplosionInformes_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmExplosionParametros.aspx.designer.vb">
+      <DependentUpon>frmExplosionParametros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmExplosionParametros.aspx.vb">
+      <DependentUpon>frmExplosionParametros.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmFacturasCompraInformes.aspx.designer.vb">
+      <DependentUpon>frmFacturasCompraInformes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmFacturasCompraInformes.aspx.vb">
+      <DependentUpon>frmFacturasCompraInformes.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmInventarioDocInformes.aspx.designer.vb">
+      <DependentUpon>frmInventarioDocInformes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmInventarioDocInformes.aspx.vb">
+      <DependentUpon>frmInventarioDocInformes.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmInventarioInformes.aspx.designer.vb">
+      <DependentUpon>frmInventarioInformes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmInventarioInformes.aspx.vb">
+      <DependentUpon>frmInventarioInformes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmInventarioParametros_dtl.aspx.designer.vb">
+      <DependentUpon>frmInventarioParametros_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmInventarioParametros_dtl.aspx.vb">
+      <DependentUpon>frmInventarioParametros_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmInvParametrosDocumentos_dtlaspx.aspx.designer.vb">
+      <DependentUpon>frmInvParametrosDocumentos_dtlaspx.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmInvParametrosDocumentos_dtlaspx.aspx.vb">
+      <DependentUpon>frmInvParametrosDocumentos_dtlaspx.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmMovimientosInformesRep_dtl.aspx.designer.vb">
+      <DependentUpon>frmMovimientosInformesRep_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmMovimientosInformesRep_dtl.aspx.vb">
+      <DependentUpon>frmMovimientosInformesRep_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmMovimientosInformes_dtl.aspx.designer.vb">
+      <DependentUpon>frmMovimientosInformes_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmMovimientosInformes_dtl.aspx.vb">
+      <DependentUpon>frmMovimientosInformes_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmOrdenesAjusteImprime_dtl.aspx.designer.vb">
+      <DependentUpon>frmOrdenesAjusteImprime_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmOrdenesAjusteImprime_dtl.aspx.vb">
+      <DependentUpon>frmOrdenesAjusteImprime_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmOrdenesCompraImprime_dtl.aspx.designer.vb">
+      <DependentUpon>frmOrdenesCompraImprime_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmOrdenesCompraImprime_dtl.aspx.vb">
+      <DependentUpon>frmOrdenesCompraImprime_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmOrdenesCompraInformes.aspx.designer.vb">
+      <DependentUpon>frmOrdenesCompraInformes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmOrdenesCompraInformes.aspx.vb">
+      <DependentUpon>frmOrdenesCompraInformes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmOrdenesCompraParametros_dtl.aspx.designer.vb">
+      <DependentUpon>frmOrdenesCompraParametros_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmOrdenesCompraParametros_dtl.aspx.vb">
+      <DependentUpon>frmOrdenesCompraParametros_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmPresupuestoDetalleInformes.aspx.designer.vb">
+      <DependentUpon>frmPresupuestoDetalleInformes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmPresupuestoDetalleInformes.aspx.vb">
+      <DependentUpon>frmPresupuestoDetalleInformes.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmPresupuestoDetalleParametros_dtl.aspx.designer.vb">
+      <DependentUpon>frmPresupuestoDetalleParametros_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmPresupuestoDetalleParametros_dtl.aspx.vb">
+      <DependentUpon>frmPresupuestoDetalleParametros_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmProveedoresInformes.aspx.designer.vb">
+      <DependentUpon>frmProveedoresInformes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmProveedoresInformes.aspx.vb">
+      <DependentUpon>frmProveedoresInformes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmProveedoresParametros_dtl.aspx.designer.vb">
+      <DependentUpon>frmProveedoresParametros_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmProveedoresParametros_dtl.aspx.vb">
+      <DependentUpon>frmProveedoresParametros_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmRecursosInformes.aspx.designer.vb">
+      <DependentUpon>frmRecursosInformes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmRecursosInformes.aspx.vb">
+      <DependentUpon>frmRecursosInformes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmRecursosParametros_dtl.aspx.designer.vb">
+      <DependentUpon>frmRecursosParametros_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmRecursosParametros_dtl.aspx.vb">
+      <DependentUpon>frmRecursosParametros_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmRequisicionesImprime_dtl.aspx.designer.vb">
+      <DependentUpon>frmRequisicionesImprime_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmRequisicionesImprime_dtl.aspx.vb">
+      <DependentUpon>frmRequisicionesImprime_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmRequisicionesInformes.aspx.designer.vb">
+      <DependentUpon>frmRequisicionesInformes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmRequisicionesInformes.aspx.vb">
+      <DependentUpon>frmRequisicionesInformes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmSaldosRecursosInformes.aspx.designer.vb">
+      <DependentUpon>frmSaldosRecursosInformes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmSaldosRecursosInformes.aspx.vb">
+      <DependentUpon>frmSaldosRecursosInformes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmSaldosRecursosParametros_dtl.aspx.designer.vb">
+      <DependentUpon>frmSaldosRecursosParametros_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmSaldosRecursosParametros_dtl.aspx.vb">
+      <DependentUpon>frmSaldosRecursosParametros_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmtbInventarioComInformes.aspx.designer.vb">
+      <DependentUpon>frmtbInventarioComInformes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmtbInventarioComInformes.aspx.vb">
+      <DependentUpon>frmtbInventarioComInformes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmComparativosParametros_dtl.aspx.designer.vb">
+      <DependentUpon>frmComparativosParametros_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmComparativosParametros_dtl.aspx.vb">
+      <DependentUpon>frmComparativosParametros_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmRequisicionesParametros_dtl.aspx.designer.vb">
+      <DependentUpon>frmRequisicionesParametros_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmRequisicionesParametros_dtl.aspx.vb">
+      <DependentUpon>frmRequisicionesParametros_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmTiposDocumentosInformes.aspx.designer.vb">
+      <DependentUpon>frmTiposDocumentosInformes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmTiposDocumentosInformes.aspx.vb">
+      <DependentUpon>frmTiposDocumentosInformes.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmTiposDocumentosRelacion_dtl.aspx.designer.vb">
+      <DependentUpon>frmTiposDocumentosRelacion_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmTiposDocumentosRelacion_dtl.aspx.vb">
+      <DependentUpon>frmTiposDocumentosRelacion_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmTotalesPorBodegasInformes.aspx.designer.vb">
+      <DependentUpon>frmTotalesPorBodegasInformes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmTotalesPorBodegasInformes.aspx.vb">
+      <DependentUpon>frmTotalesPorBodegasInformes.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmTotalesPorBodegasParametros_dtl.aspx.designer.vb">
+      <DependentUpon>frmTotalesPorBodegasParametros_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmTotalesPorBodegasParametros_dtl.aspx.vb">
+      <DependentUpon>frmTotalesPorBodegasParametros_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbAnalisisDetalle_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbAnalisisDetalle_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbAnalisisDetalle_dtl.aspx.vb">
+      <DependentUpon>frmtbAnalisisDetalle_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbAnalisis_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbAnalisis_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbAnalisis_dtl.aspx.vb">
+      <DependentUpon>frmtbAnalisis_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbBancoDatos_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbBancoDatos_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbBancoDatos_dtl.aspx.vb">
+      <DependentUpon>frmtbBancoDatos_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbBancoDatos_lst.aspx.designer.vb">
+      <DependentUpon>frmtbBancoDatos_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbBancoDatos_lst.aspx.vb">
+      <DependentUpon>frmtbBancoDatos_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbComparativosDetalle_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbComparativosDetalle_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbComparativosDetalle_dtl.aspx.vb">
+      <DependentUpon>frmtbComparativosDetalle_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbComparativos_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbComparativos_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbComparativos_dtl.aspx.vb">
+      <DependentUpon>frmtbComparativos_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbComparativos_lst.aspx.designer.vb">
+      <DependentUpon>frmtbComparativos_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbComparativos_lst.aspx.vb">
+      <DependentUpon>frmtbComparativos_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbDevolucionesComprasDetalle_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbDevolucionesComprasDetalle_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbDevolucionesComprasDetalle_dtl.aspx.vb">
+      <DependentUpon>frmtbDevolucionesComprasDetalle_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbDevolucionesCompras_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbDevolucionesCompras_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbDevolucionesCompras_dtl.aspx.vb">
+      <DependentUpon>frmtbDevolucionesCompras_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbDevolucionesCompras_lst.aspx.designer.vb">
+      <DependentUpon>frmtbDevolucionesCompras_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbDevolucionesCompras_lst.aspx.vb">
+      <DependentUpon>frmtbDevolucionesCompras_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Informes\frmtbExplosion_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbExplosion_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\frmtbExplosion_dtl.aspx.vb">
+      <DependentUpon>frmtbExplosion_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbExplosionPresupuestoDetalle_lst.aspx.designer.vb">
+      <DependentUpon>frmtbExplosionPresupuestoDetalle_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbExplosionPresupuestoDetalle_lst.aspx.vb">
+      <DependentUpon>frmtbExplosionPresupuestoDetalle_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbExplosion_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbExplosion_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbExplosion_dtl.aspx.vb">
+      <DependentUpon>frmtbExplosion_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbExplosion_lst.aspx.designer.vb">
+      <DependentUpon>frmtbExplosion_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbExplosion_lst.aspx.vb">
+      <DependentUpon>frmtbExplosion_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbFacturasCompraDetalle_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbFacturasCompraDetalle_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbFacturasCompraDetalle_dtl.aspx.vb">
+      <DependentUpon>frmtbFacturasCompraDetalle_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbFacturasCompraDetalle_lst.aspx.designer.vb">
+      <DependentUpon>frmtbFacturasCompraDetalle_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbFacturasCompraDetalle_lst.aspx.vb">
+      <DependentUpon>frmtbFacturasCompraDetalle_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbFacturasCompra_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbFacturasCompra_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbFacturasCompra_dtl.aspx.vb">
+      <DependentUpon>frmtbFacturasCompra_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbFacturasCompra_lst.aspx.designer.vb">
+      <DependentUpon>frmtbFacturasCompra_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbFacturasCompra_lst.aspx.vb">
+      <DependentUpon>frmtbFacturasCompra_lst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbInventarioDetalleEnt_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbInventarioDetalleEnt_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbInventarioDetalleEnt_dtl.aspx.vb">
+      <DependentUpon>frmtbInventarioDetalleEnt_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbInventarioDetalleESO_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbInventarioDetalleESO_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbInventarioDetalleESO_dtl.aspx.vb">
+      <DependentUpon>frmtbInventarioDetalleESO_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbInventarioDetalleEU_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbInventarioDetalleEU_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbInventarioDetalleEU_dtl.aspx.vb">
+      <DependentUpon>frmtbInventarioDetalleEU_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbInventarioDetalleSalCons_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbInventarioDetalleSalCons_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbInventarioDetalleSalCons_dtl.aspx.vb">
+      <DependentUpon>frmtbInventarioDetalleSalCons_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbInventarioDetalle_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbInventarioDetalle_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbInventarioDetalle_dtl.aspx.vb">
+      <DependentUpon>frmtbInventarioDetalle_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbInventario_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbInventario_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbInventario_dtl.aspx.vb">
+      <DependentUpon>frmtbInventario_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbInventario_lst.aspx.designer.vb">
+      <DependentUpon>frmtbInventario_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbInventario_lst.aspx.vb">
+      <DependentUpon>frmtbInventario_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbMovInvDetConsumosPorExp_lst.aspx.designer.vb">
+      <DependentUpon>frmtbMovInvDetConsumosPorExp_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbMovInvDetConsumosPorExp_lst.aspx.vb">
+      <DependentUpon>frmtbMovInvDetConsumosPorExp_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbOrdenesAjusteDetalle_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbOrdenesAjusteDetalle_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbOrdenesAjusteDetalle_dtl.aspx.vb">
+      <DependentUpon>frmtbOrdenesAjusteDetalle_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbOrdenesAjuste_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbOrdenesAjuste_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbOrdenesAjuste_dtl.aspx.vb">
+      <DependentUpon>frmtbOrdenesAjuste_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbOrdenesAjuste_lst.aspx.designer.vb">
+      <DependentUpon>frmtbOrdenesAjuste_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbOrdenesAjuste_lst.aspx.vb">
+      <DependentUpon>frmtbOrdenesAjuste_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbOrdenesCompraDetalle_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbOrdenesCompraDetalle_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbOrdenesCompraDetalle_dtl.aspx.vb">
+      <DependentUpon>frmtbOrdenesCompraDetalle_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbOrdenesCompraGenerarEntradaSalida_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbOrdenesCompraGenerarEntradaSalida_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbOrdenesCompraGenerarEntradaSalida_dtl.aspx.vb">
+      <DependentUpon>frmtbOrdenesCompraGenerarEntradaSalida_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbOrdenesCompraGenerarEntrada_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbOrdenesCompraGenerarEntrada_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbOrdenesCompraGenerarEntrada_dtl.aspx.vb">
+      <DependentUpon>frmtbOrdenesCompraGenerarEntrada_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbOrdenesCompra_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbOrdenesCompra_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbOrdenesCompra_dtl.aspx.vb">
+      <DependentUpon>frmtbOrdenesCompra_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbOrdenesCompra_lst.aspx.designer.vb">
+      <DependentUpon>frmtbOrdenesCompra_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbOrdenesCompra_lst.aspx.vb">
+      <DependentUpon>frmtbOrdenesCompra_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbPaginar_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbPaginar_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbPaginar_dtl.aspx.vb">
+      <DependentUpon>frmtbPaginar_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbPresupuestoDetalle_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbPresupuestoDetalle_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbPresupuestoDetalle_dtl.aspx.vb">
+      <DependentUpon>frmtbPresupuestoDetalle_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbRequisicionesDetalleAnular_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbRequisicionesDetalleAnular_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbRequisicionesDetalleAnular_dtl.aspx.vb">
+      <DependentUpon>frmtbRequisicionesDetalleAnular_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbRequisicionesDetallePedidos_lst.aspx.designer.vb">
+      <DependentUpon>frmtbRequisicionesDetallePedidos_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbRequisicionesDetallePedidos_lst.aspx.vb">
+      <DependentUpon>frmtbRequisicionesDetallePedidos_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbRequisicionesDetalleTransferidos_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbRequisicionesDetalleTransferidos_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbRequisicionesDetalleTransferidos_dtl.aspx.vb">
+      <DependentUpon>frmtbRequisicionesDetalleTransferidos_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbRequisicionesDetalle_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbRequisicionesDetalle_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbRequisicionesDetalle_dtl.aspx.vb">
+      <DependentUpon>frmtbRequisicionesDetalle_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbRequisicionesPresupuestoDetalle_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbRequisicionesPresupuestoDetalle_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbRequisicionesPresupuestoDetalle_dtl.aspx.vb">
+      <DependentUpon>frmtbRequisicionesPresupuestoDetalle_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbRequisiciones_dtl.aspx.designer.vb">
+      <DependentUpon>frmtbRequisiciones_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbRequisiciones_dtl.aspx.vb">
+      <DependentUpon>frmtbRequisiciones_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbRequisiciones_lst.aspx.designer.vb">
+      <DependentUpon>frmtbRequisiciones_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbRequisiciones_lst.aspx.vb">
+      <DependentUpon>frmtbRequisiciones_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\frmtbSaldosDisponibles2_lst.aspx.designer.vb">
+      <DependentUpon>frmtbSaldosDisponibles2_lst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\frmtbSaldosDisponibles2_lst.aspx.vb">
+      <DependentUpon>frmtbSaldosDisponibles2_lst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos\Test.aspx.designer.vb">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\Test.aspx.vb">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWebExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.Web.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Procesos\frmAbreLapso_dtl.aspx.designer.vb">
+      <DependentUpon>frmAbreLapso_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\frmAbreLapso_dtl.aspx.vb">
+      <DependentUpon>frmAbreLapso_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Procesos\frmCierreLapso_dtl.aspx.designer.vb">
+      <DependentUpon>frmCierreLapso_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\frmCierreLapso_dtl.aspx.vb">
+      <DependentUpon>frmCierreLapso_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Procesos\frmReaplicaAContabilidad_dt.aspx.designer.vb">
+      <DependentUpon>frmReaplicaAContabilidad_dt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\frmReaplicaAContabilidad_dt.aspx.vb">
+      <DependentUpon>frmReaplicaAContabilidad_dt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Procesos\frmReAplicacionInventario_dtl.aspx.designer.vb">
+      <DependentUpon>frmReAplicacionInventario_dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\frmReAplicacionInventario_dtl.aspx.vb">
+      <DependentUpon>frmReAplicacionInventario_dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.vb">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.vb">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.vb">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site1.Master.vb">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Informes\AcumuladoCenCostosPorRecurso.rdlc" />
+    <EmbeddedResource Include="Informes\AcumuladoContratistasPorRecurso.rdlc" />
+    <EmbeddedResource Include="Informes\AcumuladoDestinosPorRecurso.rdlc" />
+    <EmbeddedResource Include="Informes\AcumuladoElementosUnidadesPorRecurso.rdlc" />
+    <EmbeddedResource Include="Informes\AcumuladoEspaciosPorRecurso.rdlc" />
+    <EmbeddedResource Include="Informes\AcumuladoItemsPresupuestoPorRecurso.rdlc" />
+    <EmbeddedResource Include="Informes\AcumuladoMaterialesPorElementoEspacio.rdlc" />
+    <EmbeddedResource Include="Informes\AcumuladoMaterialesPorElementoUnidad.rdlc" />
+    <EmbeddedResource Include="Informes\AcumuladoMaterialesPorItemPresupuesto.rdlc" />
+    <EmbeddedResource Include="Informes\AcumuladoRecursosPorCenCostos.rdlc" />
+    <EmbeddedResource Include="Informes\AcumuladoRecursosPorDestinos.rdlc" />
+    <EmbeddedResource Include="Informes\cat_tbAnalisis.rdlc" />
+    <EmbeddedResource Include="Informes\cat_tbBodegas.rdlc" />
+    <EmbeddedResource Include="Informes\cat_tbContratistas.rdlc" />
+    <EmbeddedResource Include="Informes\cat_tbEmpresas.rdlc" />
+    <EmbeddedResource Include="Informes\cat_tbGrupos.rdlc" />
+    <EmbeddedResource Include="Informes\cat_tbLapsos.rdlc" />
+    <EmbeddedResource Include="Informes\cat_tbLineas.rdlc" />
+    <EmbeddedResource Include="Informes\cat_tbPerfilesSeguridad.rdlc" />
+    <EmbeddedResource Include="Informes\cat_tbProveedores.rdlc" />
+    <EmbeddedResource Include="Informes\cat_tbTiposComprobantes.rdlc" />
+    <EmbeddedResource Include="Informes\cat_tbTiposDocumentos.rdlc" />
+    <EmbeddedResource Include="Informes\cat_tbTransacciones.rdlc" />
+    <EmbeddedResource Include="Informes\cat_tbUsuarios.rdlc" />
+    <EmbeddedResource Include="Informes\com_tbComparativo_lista.rdlc" />
+    <EmbeddedResource Include="Informes\com_tbComparativo_lista2.rdlc" />
+    <EmbeddedResource Include="Informes\ExplosionRecursosPorItemPresupuesto.rdlc" />
+    <EmbeddedResource Include="Informes\FacturaDeCompra.rdlc" />
+    <EmbeddedResource Include="Informes\InventarioListaDoc.rdlc" />
+    <EmbeddedResource Include="Informes\InventarioListaDoc3.rdlc" />
+    <EmbeddedResource Include="Informes\InventarioListaDoc4.rdlc" />
+    <EmbeddedResource Include="Informes\InventarioListaDoc5.rdlc" />
+    <EmbeddedResource Include="Informes\MovimientoCenCostosPorRecurso.rdlc" />
+    <EmbeddedResource Include="Informes\MovimientoContratistasPorRecurso.rdlc" />
+    <EmbeddedResource Include="Informes\MovimientoDestinosPorRecurso.rdlc" />
+    <EmbeddedResource Include="Informes\MovimientoElementosUnidadesPorRecurso.rdlc" />
+    <EmbeddedResource Include="Informes\MovimientoEspaciosPorRecurso.rdlc" />
+    <EmbeddedResource Include="Informes\MovimientoItemsPresupuestoPorRecurso.rdlc" />
+    <EmbeddedResource Include="Informes\MovimientoMaterialesPorElementoEspacio.rdlc" />
+    <EmbeddedResource Include="Informes\MovimientoMaterialesPorElementoUnidad.rdlc" />
+    <EmbeddedResource Include="Informes\MovimientoMaterialesPorItemPresupuesto.rdlc" />
+    <EmbeddedResource Include="Informes\MovimientoProveedoresPorRecurso.rdlc" />
+    <EmbeddedResource Include="Informes\MovimientoRecursosPorCenCostos.rdlc" />
+    <EmbeddedResource Include="Informes\MovimientoRecursosPorDestinos.rdlc" />
+    <EmbeddedResource Include="Informes\Movimientos.rdlc" />
+    <EmbeddedResource Include="Informes\OrdenesCompraListaDocVer.rdlc" />
+    <EmbeddedResource Include="Informes\OrdenesCompraPorProveedor.rdlc" />
+    <EmbeddedResource Include="Informes\OrdenesCompraPorRecurso.rdlc" />
+    <EmbeddedResource Include="Informes\RelacionTiposDocumentosINV.rdlc" />
+    <EmbeddedResource Include="Informes\RequisicionesNoCumplidas.rdlc" />
+    <EmbeddedResource Include="Informes\tbCenCostos_Catalogo.rdlc" />
+    <EmbeddedResource Include="Informes\tbDestinos_Catalogo.rdlc" />
+    <EmbeddedResource Include="Informes\tbEmpresas_Catalogo.rdlc" />
+    <EmbeddedResource Include="Informes\tbExplosion_AnalisisPorRecurso.rdlc" />
+    <EmbeddedResource Include="Informes\tbExplosion_Totales_Nombres.rdlc" />
+    <EmbeddedResource Include="Informes\tbExplosion_Totales_Unitario.rdlc" />
+    <EmbeddedResource Include="Informes\tbInventario_EntradasRangoDocumentos.rdlc" />
+    <EmbeddedResource Include="Informes\tbInventario_SalidasRangoDocumentos.rdlc" />
+    <EmbeddedResource Include="Informes\tbOrdenesAjuste_ListaDocumento.rdlc" />
+    <EmbeddedResource Include="Informes\tbOrdenesCompra_ListaDocumento.rdlc" />
+    <EmbeddedResource Include="Informes\tbOrdenesCompra_NoCumplidas.rdlc" />
+    <EmbeddedResource Include="Informes\tbOrdenesCompra_RangoDocumentos.rdlc" />
+    <EmbeddedResource Include="Informes\tbOrdenesCompra_ResOrdCom.rdlc" />
+    <EmbeddedResource Include="Informes\tbOrdenesCompra_ResOrdIva.rdlc" />
+    <EmbeddedResource Include="Informes\tbRecursos_AcumuladoObrasPorRecurso.rdlc" />
+    <EmbeddedResource Include="Informes\tbRecursos_AcumuladoProveedoresPorRecurso.rdlc" />
+    <EmbeddedResource Include="Informes\tbRecursos_AcumuladoProyectosPorRecurso.rdlc" />
+    <EmbeddedResource Include="Informes\tbRecursos_CatalogoINV.rdlc" />
+    <EmbeddedResource Include="Informes\tbRecursos_EntradasSalidasSaldos.rdlc" />
+    <EmbeddedResource Include="Informes\tbRecursos_MovimientoProveedoresPorRecurso.rdlc" />
+    <EmbeddedResource Include="Informes\tbRecursos_MovimientoProyectosPorRecurso.rdlc" />
+    <EmbeddedResource Include="Informes\tbRecursos_Saldos.rdlc" />
+    <EmbeddedResource Include="Informes\tbRecursos_SaldosG.rdlc" />
+    <EmbeddedResource Include="Informes\tbRecursos_TarjetaKardex.rdlc" />
+    <EmbeddedResource Include="Informes\tbRequisiciones_ListaDocumento.rdlc" />
+    <EmbeddedResource Include="Informes\tbRequisiciones_RangoDocumentos.rdlc" />
+    <EmbeddedResource Include="Informes\tbSubEmpresas_Catalogo.rdlc" />
+    <EmbeddedResource Include="Informes\tbTerceros_CatalogoProveedores.rdlc" />
+    <EmbeddedResource Include="Informes\Test1.rdlc" />
+    <EmbeddedResource Include="Informes\TotalesComprasPorProveedor.rdlc" />
+    <EmbeddedResource Include="Informes\TotalesComprasPorRecurso.rdlc" />
+    <EmbeddedResource Include="Informes\TotalesComprasPorRecursoVsPpto.rdlc" />
+    <EmbeddedResource Include="Informes\TotalesPorBodegas.rdlc" />
+    <EmbeddedResource Include="Informes\TotalesPorCenCostos.rdlc" />
+    <EmbeddedResource Include="Informes\TotalesPorDestino.rdlc" />
+    <EmbeddedResource Include="Informes\TotalesPorElementoEspacio.rdlc" />
+    <EmbeddedResource Include="Informes\TotalesPorElementoUnidad.rdlc" />
+    <EmbeddedResource Include="Informes\TotalesPorItemsPresupuesto.rdlc" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Web.config" />
+    <None Include="CincoV10DataSet.xsc">
+      <DependentUpon>CincoV10DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CincoV10DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CincoV10DataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CincoV10DataSet.xss">
+      <DependentUpon>CincoV10DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSAcumuladoMaterialesPorItem.xsc">
+      <DependentUpon>DSAcumuladoMaterialesPorItem.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSAcumuladoMaterialesPorItem.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSAcumuladoMaterialesPorItem.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DSAcumuladoMaterialesPorItem.xss">
+      <DependentUpon>DSAcumuladoMaterialesPorItem.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSMovimientos.xsc">
+      <DependentUpon>DSMovimientos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSMovimientos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSMovimientos.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DSMovimientos.xss">
+      <DependentUpon>DSMovimientos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSTotalesPorItemsPresupuesto.xsc">
+      <DependentUpon>DSTotalesPorItemsPresupuesto.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSTotalesPorItemsPresupuesto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSTotalesPorItemsPresupuesto.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DSTotalesPorItemsPresupuesto.xss">
+      <DependentUpon>DSTotalesPorItemsPresupuesto.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_AcumuladoElementosUnidadesPorRecurso.xsc">
+      <DependentUpon>DS_AcumuladoElementosUnidadesPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_AcumuladoElementosUnidadesPorRecurso.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_AcumuladoElementosUnidadesPorRecurso.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_AcumuladoElementosUnidadesPorRecurso.xss">
+      <DependentUpon>DS_AcumuladoElementosUnidadesPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_AcumuladoEspaciosPorRecurso.xsc">
+      <DependentUpon>DS_AcumuladoEspaciosPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_AcumuladoEspaciosPorRecurso.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_AcumuladoEspaciosPorRecurso.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_AcumuladoEspaciosPorRecurso.xss">
+      <DependentUpon>DS_AcumuladoEspaciosPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_AcumuladoMaterialesPorElementoEspacio.xsc">
+      <DependentUpon>DS_AcumuladoMaterialesPorElementoEspacio.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_AcumuladoMaterialesPorElementoEspacio.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_AcumuladoMaterialesPorElementoEspacio.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_AcumuladoMaterialesPorElementoEspacio.xss">
+      <DependentUpon>DS_AcumuladoMaterialesPorElementoEspacio.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_AcumuladoMaterialesPorElementoUnidad.xsc">
+      <DependentUpon>DS_AcumuladoMaterialesPorElementoUnidad.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_AcumuladoMaterialesPorElementoUnidad.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_AcumuladoMaterialesPorElementoUnidad.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_AcumuladoMaterialesPorElementoUnidad.xss">
+      <DependentUpon>DS_AcumuladoMaterialesPorElementoUnidad.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_cat_tbAnalisis.xsc">
+      <DependentUpon>DS_cat_tbAnalisis.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_cat_tbAnalisis.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_cat_tbAnalisis.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_cat_tbAnalisis.xss">
+      <DependentUpon>DS_cat_tbAnalisis.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_cat_tbContratistas.xsc">
+      <DependentUpon>DS_cat_tbContratistas.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_cat_tbContratistas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_cat_tbContratistas.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_cat_tbContratistas.xss">
+      <DependentUpon>DS_cat_tbContratistas.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_cat_tbGrupos.xsc">
+      <DependentUpon>DS_cat_tbGrupos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_cat_tbGrupos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_cat_tbGrupos.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_cat_tbGrupos.xss">
+      <DependentUpon>DS_cat_tbGrupos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_cat_tbLapsos.xsc">
+      <DependentUpon>DS_cat_tbLapsos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_cat_tbLapsos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_cat_tbLapsos.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_cat_tbLapsos.xss">
+      <DependentUpon>DS_cat_tbLapsos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_cat_tbLineas.xsc">
+      <DependentUpon>DS_cat_tbLineas.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_cat_tbLineas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_cat_tbLineas.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_cat_tbLineas.xss">
+      <DependentUpon>DS_cat_tbLineas.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_cat_tbPerfilesSeguridad.xsc">
+      <DependentUpon>DS_cat_tbPerfilesSeguridad.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_cat_tbPerfilesSeguridad.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_cat_tbPerfilesSeguridad.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_cat_tbPerfilesSeguridad.xss">
+      <DependentUpon>DS_cat_tbPerfilesSeguridad.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_cat_tbProveedores.xsc">
+      <DependentUpon>DS_cat_tbProveedores.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_cat_tbProveedores.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_cat_tbProveedores.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_cat_tbProveedores.xss">
+      <DependentUpon>DS_cat_tbProveedores.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_cat_tbTiposComprobantes.xsc">
+      <DependentUpon>DS_cat_tbTiposComprobantes.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_cat_tbTiposComprobantes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_cat_tbTiposComprobantes.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_cat_tbTiposComprobantes.xss">
+      <DependentUpon>DS_cat_tbTiposComprobantes.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_cat_tbTiposDocumentos.xsc">
+      <DependentUpon>DS_cat_tbTiposDocumentos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_cat_tbTiposDocumentos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_cat_tbTiposDocumentos.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_cat_tbTiposDocumentos.xss">
+      <DependentUpon>DS_cat_tbTiposDocumentos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_cat_tbTransacciones.xsc">
+      <DependentUpon>DS_cat_tbTransacciones.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_cat_tbTransacciones.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_cat_tbTransacciones.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_cat_tbTransacciones.xss">
+      <DependentUpon>DS_cat_tbTransacciones.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_cat_tbUsuarios.xsc">
+      <DependentUpon>DS_cat_tbUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_cat_tbUsuarios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_cat_tbUsuarios.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_cat_tbUsuarios.xss">
+      <DependentUpon>DS_cat_tbUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_ComprasRecursosVsPresupuesto.xsc">
+      <DependentUpon>DS_ComprasRecursosVsPresupuesto.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_ComprasRecursosVsPresupuesto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_ComprasRecursosVsPresupuesto.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_ComprasRecursosVsPresupuesto.xss">
+      <DependentUpon>DS_ComprasRecursosVsPresupuesto.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_com_tbComparativo_lista.xsc">
+      <DependentUpon>DS_com_tbComparativo_lista.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_com_tbComparativo_lista.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_com_tbComparativo_lista.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_com_tbComparativo_lista.xss">
+      <DependentUpon>DS_com_tbComparativo_lista.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_ExplosionRecursosPorItemPpto.xsc">
+      <DependentUpon>DS_ExplosionRecursosPorItemPpto.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_ExplosionRecursosPorItemPpto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_ExplosionRecursosPorItemPpto.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_ExplosionRecursosPorItemPpto.xss">
+      <DependentUpon>DS_ExplosionRecursosPorItemPpto.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_MovimientoElementosUnidadesPorRecurso.xsc">
+      <DependentUpon>DS_MovimientoElementosUnidadesPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_MovimientoElementosUnidadesPorRecurso.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_MovimientoElementosUnidadesPorRecurso.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_MovimientoElementosUnidadesPorRecurso.xss">
+      <DependentUpon>DS_MovimientoElementosUnidadesPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_MovimientoEspaciosPorRecurso.xsc">
+      <DependentUpon>DS_MovimientoEspaciosPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_MovimientoEspaciosPorRecurso.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_MovimientoEspaciosPorRecurso.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_MovimientoEspaciosPorRecurso.xss">
+      <DependentUpon>DS_MovimientoEspaciosPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_MovimientoMaterialesPorElementoEspacio.xsc">
+      <DependentUpon>DS_MovimientoMaterialesPorElementoEspacio.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_MovimientoMaterialesPorElementoEspacio.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_MovimientoMaterialesPorElementoEspacio.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_MovimientoMaterialesPorElementoEspacio.xss">
+      <DependentUpon>DS_MovimientoMaterialesPorElementoEspacio.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_MovimientoMaterialesPorElementoUnidad.xsc">
+      <DependentUpon>DS_MovimientoMaterialesPorElementoUnidad.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_MovimientoMaterialesPorElementoUnidad.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_MovimientoMaterialesPorElementoUnidad.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_MovimientoMaterialesPorElementoUnidad.xss">
+      <DependentUpon>DS_MovimientoMaterialesPorElementoUnidad.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_MovimientoMaterialesPorItemPresupuesto.xsc">
+      <DependentUpon>DS_MovimientoMaterialesPorItemPresupuesto.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_MovimientoMaterialesPorItemPresupuesto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_MovimientoMaterialesPorItemPresupuesto.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_MovimientoMaterialesPorItemPresupuesto.xss">
+      <DependentUpon>DS_MovimientoMaterialesPorItemPresupuesto.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_RelacionTiposDocumentos.xsc">
+      <DependentUpon>DS_RelacionTiposDocumentos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_RelacionTiposDocumentos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_RelacionTiposDocumentos.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_RelacionTiposDocumentos.xss">
+      <DependentUpon>DS_RelacionTiposDocumentos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_RequisicionesNoCumplidas.xsc">
+      <DependentUpon>DS_RequisicionesNoCumplidas.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_RequisicionesNoCumplidas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_RequisicionesNoCumplidas.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_RequisicionesNoCumplidas.xss">
+      <DependentUpon>DS_RequisicionesNoCumplidas.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbComparativos_Lista2.xsc">
+      <DependentUpon>DS_tbComparativos_Lista2.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbComparativos_Lista2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbComparativos_Lista2.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbComparativos_Lista2.xss">
+      <DependentUpon>DS_tbComparativos_Lista2.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbExplosion_AnalisisPorRecurso.xsc">
+      <DependentUpon>DS_tbExplosion_AnalisisPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbExplosion_AnalisisPorRecurso.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbExplosion_AnalisisPorRecurso.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbExplosion_AnalisisPorRecurso.xss">
+      <DependentUpon>DS_tbExplosion_AnalisisPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbExplosion_Totales.xsc">
+      <DependentUpon>DS_tbExplosion_Totales.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbExplosion_Totales.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbExplosion_Totales.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbExplosion_Totales.xss">
+      <DependentUpon>DS_tbExplosion_Totales.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbFacturasCompra_ListaDocumento.xsc">
+      <DependentUpon>DS_tbFacturasCompra_ListaDocumento.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbFacturasCompra_ListaDocumento.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbFacturasCompra_ListaDocumento.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbFacturasCompra_ListaDocumento.xss">
+      <DependentUpon>DS_tbFacturasCompra_ListaDocumento.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbInventario_RangoDocumentosEnt.xsc">
+      <DependentUpon>DS_tbInventario_RangoDocumentosEnt.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbInventario_RangoDocumentosEnt.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbInventario_RangoDocumentosEnt.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbInventario_RangoDocumentosEnt.xss">
+      <DependentUpon>DS_tbInventario_RangoDocumentosEnt.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbInventario_RangoDocumentosSal.xsc">
+      <DependentUpon>DS_tbInventario_RangoDocumentosSal.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbInventario_RangoDocumentosSal.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbInventario_RangoDocumentosSal.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbInventario_RangoDocumentosSal.xss">
+      <DependentUpon>DS_tbInventario_RangoDocumentosSal.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbOrdenesAjuste_ListaDocumento.xsc">
+      <DependentUpon>DS_tbOrdenesAjuste_ListaDocumento.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbOrdenesAjuste_ListaDocumento.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbOrdenesAjuste_ListaDocumento.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbOrdenesAjuste_ListaDocumento.xss">
+      <DependentUpon>DS_tbOrdenesAjuste_ListaDocumento.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_ListaDocumento.xsc">
+      <DependentUpon>DS_tbOrdenesCompra_ListaDocumento.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_ListaDocumento.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbOrdenesCompra_ListaDocumento.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_ListaDocumento.xss">
+      <DependentUpon>DS_tbOrdenesCompra_ListaDocumento.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_NoCumplidas.xsc">
+      <DependentUpon>DS_tbOrdenesCompra_NoCumplidas.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_NoCumplidas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbOrdenesCompra_NoCumplidas.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_NoCumplidas.xss">
+      <DependentUpon>DS_tbOrdenesCompra_NoCumplidas.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_OrdenesPorProveedor.xsc">
+      <DependentUpon>DS_tbOrdenesCompra_OrdenesPorProveedor.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_OrdenesPorProveedor.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbOrdenesCompra_OrdenesPorProveedor.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_OrdenesPorProveedor.xss">
+      <DependentUpon>DS_tbOrdenesCompra_OrdenesPorProveedor.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_OrdenesPorRecurso.xsc">
+      <DependentUpon>DS_tbOrdenesCompra_OrdenesPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_OrdenesPorRecurso.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbOrdenesCompra_OrdenesPorRecurso.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_OrdenesPorRecurso.xss">
+      <DependentUpon>DS_tbOrdenesCompra_OrdenesPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_OrdResIva.xsc">
+      <DependentUpon>DS_tbOrdenesCompra_OrdResIva.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_OrdResIva.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbOrdenesCompra_OrdResIva.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_OrdResIva.xss">
+      <DependentUpon>DS_tbOrdenesCompra_OrdResIva.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_RangoDocumentos.xsc">
+      <DependentUpon>DS_tbOrdenesCompra_RangoDocumentos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_RangoDocumentos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbOrdenesCompra_RangoDocumentos.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_RangoDocumentos.xss">
+      <DependentUpon>DS_tbOrdenesCompra_RangoDocumentos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_ResOrdCom.xsc">
+      <DependentUpon>DS_tbOrdenesCompra_ResOrdCom.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_ResOrdCom.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbOrdenesCompra_ResOrdCom.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_ResOrdCom.xss">
+      <DependentUpon>DS_tbOrdenesCompra_ResOrdCom.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_TotalesPorProveedor.xsc">
+      <DependentUpon>DS_tbOrdenesCompra_TotalesPorProveedor.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_TotalesPorProveedor.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbOrdenesCompra_TotalesPorProveedor.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_TotalesPorProveedor.xss">
+      <DependentUpon>DS_tbOrdenesCompra_TotalesPorProveedor.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_TotalesPorRecurso.xsc">
+      <DependentUpon>DS_tbOrdenesCompra_TotalesPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_TotalesPorRecurso.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbOrdenesCompra_TotalesPorRecurso.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbOrdenesCompra_TotalesPorRecurso.xss">
+      <DependentUpon>DS_tbOrdenesCompra_TotalesPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRecursos_AcumuladoContratistasPorRecurso.xsc">
+      <DependentUpon>DS_tbRecursos_AcumuladoContratistasPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRecursos_AcumuladoContratistasPorRecurso.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbRecursos_AcumuladoContratistasPorRecurso.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbRecursos_AcumuladoContratistasPorRecurso.xss">
+      <DependentUpon>DS_tbRecursos_AcumuladoContratistasPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRecursos_AcumuladoItemsPresupuestoPorRecurso.xsc">
+      <DependentUpon>DS_tbRecursos_AcumuladoItemsPresupuestoPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRecursos_AcumuladoItemsPresupuestoPorRecurso.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbRecursos_AcumuladoItemsPresupuestoPorRecurso.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbRecursos_AcumuladoItemsPresupuestoPorRecurso.xss">
+      <DependentUpon>DS_tbRecursos_AcumuladoItemsPresupuestoPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRecursos_AcumuladoObrasPorRecurso.xsc">
+      <DependentUpon>DS_tbRecursos_AcumuladoObrasPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRecursos_AcumuladoObrasPorRecurso.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbRecursos_AcumuladoObrasPorRecurso.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbRecursos_AcumuladoObrasPorRecurso.xss">
+      <DependentUpon>DS_tbRecursos_AcumuladoObrasPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRecursos_AcumuladoProveedoresPorRecurso.xsc">
+      <DependentUpon>DS_tbRecursos_AcumuladoProveedoresPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRecursos_AcumuladoProveedoresPorRecurso.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbRecursos_AcumuladoProveedoresPorRecurso.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbRecursos_AcumuladoProveedoresPorRecurso.xss">
+      <DependentUpon>DS_tbRecursos_AcumuladoProveedoresPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRecursos_AcumuladoProyectosPorRecurso.xsc">
+      <DependentUpon>DS_tbRecursos_AcumuladoProyectosPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRecursos_AcumuladoProyectosPorRecurso.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbRecursos_AcumuladoProyectosPorRecurso.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbRecursos_AcumuladoProyectosPorRecurso.xss">
+      <DependentUpon>DS_tbRecursos_AcumuladoProyectosPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRecursos_MovimientoContratistasPorRecurso.xsc">
+      <DependentUpon>DS_tbRecursos_MovimientoContratistasPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRecursos_MovimientoContratistasPorRecurso.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbRecursos_MovimientoContratistasPorRecurso.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbRecursos_MovimientoContratistasPorRecurso.xss">
+      <DependentUpon>DS_tbRecursos_MovimientoContratistasPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRecursos_MovimientoItemsPresupuestoPorRecurso.xsc">
+      <DependentUpon>DS_tbRecursos_MovimientoItemsPresupuestoPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRecursos_MovimientoItemsPresupuestoPorRecurso.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbRecursos_MovimientoItemsPresupuestoPorRecurso.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbRecursos_MovimientoItemsPresupuestoPorRecurso.xss">
+      <DependentUpon>DS_tbRecursos_MovimientoItemsPresupuestoPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRecursos_MovimientoProveedoresPorRecurso.xsc">
+      <DependentUpon>DS_tbRecursos_MovimientoProveedoresPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRecursos_MovimientoProveedoresPorRecurso.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbRecursos_MovimientoProveedoresPorRecurso.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbRecursos_MovimientoProveedoresPorRecurso.xss">
+      <DependentUpon>DS_tbRecursos_MovimientoProveedoresPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRecursos_Saldos.xsc">
+      <DependentUpon>DS_tbRecursos_Saldos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRecursos_Saldos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbRecursos_Saldos.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Informes\DS_tbRecursos_Saldos.xss">
+      <DependentUpon>DS_tbRecursos_Saldos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRecursos_TarjetaKardex.xsc">
+      <DependentUpon>DS_tbRecursos_TarjetaKardex.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRecursos_TarjetaKardex.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbRecursos_TarjetaKardex.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Informes\DS_tbRecursos_TarjetaKardex.xss">
+      <DependentUpon>DS_tbRecursos_TarjetaKardex.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRequisiciones_ListaDocumento.xsc">
+      <DependentUpon>DS_tbRequisiciones_ListaDocumento.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRequisiciones_ListaDocumento.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbRequisiciones_ListaDocumento.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbRequisiciones_ListaDocumento.xss">
+      <DependentUpon>DS_tbRequisiciones_ListaDocumento.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRequisiciones_RangoDocumentos.xsc">
+      <DependentUpon>DS_tbRequisiciones_RangoDocumentos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRequisiciones_RangoDocumentos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbRequisiciones_RangoDocumentos.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbRequisiciones_RangoDocumentos.xss">
+      <DependentUpon>DS_tbRequisiciones_RangoDocumentos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbSubEmpresas_Catalogo.xsc">
+      <DependentUpon>DS_tbSubEmpresas_Catalogo.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbSubEmpresas_Catalogo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbSubEmpresas_Catalogo.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbSubEmpresas_Catalogo.xss">
+      <DependentUpon>DS_tbSubEmpresas_Catalogo.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbTerceros_CatalogoProveedores.xsc">
+      <DependentUpon>DS_tbTerceros_CatalogoProveedores.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbTerceros_CatalogoProveedores.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbTerceros_CatalogoProveedores.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbTerceros_CatalogoProveedores.xss">
+      <DependentUpon>DS_tbTerceros_CatalogoProveedores.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSAcumuladoRecursosPorCenCostos.xsc">
+      <DependentUpon>DSAcumuladoRecursosPorCenCostos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSAcumuladoRecursosPorCenCostos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSAcumuladoRecursosPorCenCostos.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DSAcumuladoRecursosPorCenCostos.xss">
+      <DependentUpon>DSAcumuladoRecursosPorCenCostos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSAcumuladoRecursosPorDestinos.xsc">
+      <DependentUpon>DSAcumuladoRecursosPorDestinos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSAcumuladoRecursosPorDestinos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSAcumuladoRecursosPorDestinos.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DSAcumuladoRecursosPorDestinos.xss">
+      <DependentUpon>DSAcumuladoRecursosPorDestinos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSDocumentoInventario.xsc">
+      <DependentUpon>DSDocumentoInventario.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSDocumentoInventario.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSDocumentoInventario.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DSDocumentoInventario.xss">
+      <DependentUpon>DSDocumentoInventario.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSMovimientoCenCostosPorRecurso.xsc">
+      <DependentUpon>DSMovimientoCenCostosPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSMovimientoCenCostosPorRecurso.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSMovimientoCenCostosPorRecurso.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DSMovimientoCenCostosPorRecurso.xss">
+      <DependentUpon>DSMovimientoCenCostosPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSMovimientoDestinosPorRecurso.xsc">
+      <DependentUpon>DSMovimientoDestinosPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSMovimientoDestinosPorRecurso.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSMovimientoDestinosPorRecurso.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DSMovimientoDestinosPorRecurso.xss">
+      <DependentUpon>DSMovimientoDestinosPorRecurso.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSMovimientoRecursosPorCenCostos.xsc">
+      <DependentUpon>DSMovimientoRecursosPorCenCostos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSMovimientoRecursosPorCenCostos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSMovimientoRecursosPorCenCostos.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DSMovimientoRecursosPorCenCostos.xss">
+      <DependentUpon>DSMovimientoRecursosPorCenCostos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSMovimientoRecursosPorDestinos.xsc">
+      <DependentUpon>DSMovimientoRecursosPorDestinos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSMovimientoRecursosPorDestinos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSMovimientoRecursosPorDestinos.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DSMovimientoRecursosPorDestinos.xss">
+      <DependentUpon>DSMovimientoRecursosPorDestinos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSTotalesPorCenCostos.xsc">
+      <DependentUpon>DSTotalesPorCenCostos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSTotalesPorCenCostos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSTotalesPorCenCostos.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DSTotalesPorCenCostos.xss">
+      <DependentUpon>DSTotalesPorCenCostos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSTotalesPorDestinos.xsc">
+      <DependentUpon>DSTotalesPorDestinos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSTotalesPorDestinos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSTotalesPorDestinos.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DSTotalesPorDestinos.xss">
+      <DependentUpon>DSTotalesPorDestinos.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_cat_tbBodegas.xsc">
+      <DependentUpon>DS_cat_tbBodegas.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_cat_tbBodegas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_cat_tbBodegas.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_cat_tbBodegas.xss">
+      <DependentUpon>DS_cat_tbBodegas.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_OrdenesCompra_ListaDocVer.xsc">
+      <DependentUpon>DS_OrdenesCompra_ListaDocVer.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_OrdenesCompra_ListaDocVer.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_OrdenesCompra_ListaDocVer.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_OrdenesCompra_ListaDocVer.xss">
+      <DependentUpon>DS_OrdenesCompra_ListaDocVer.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbCenCostos_Catalogo.xsc">
+      <DependentUpon>DS_tbCenCostos_Catalogo.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbCenCostos_Catalogo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbCenCostos_Catalogo.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbCenCostos_Catalogo.xss">
+      <DependentUpon>DS_tbCenCostos_Catalogo.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbDestinos_Catalogo.xsc">
+      <DependentUpon>DS_tbDestinos_Catalogo.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbDestinos_Catalogo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbDestinos_Catalogo.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbDestinos_Catalogo.xss">
+      <DependentUpon>DS_tbDestinos_Catalogo.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbEmpresas_Catalogo.xsc">
+      <DependentUpon>DS_tbEmpresas_Catalogo.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbEmpresas_Catalogo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbEmpresas_Catalogo.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbEmpresas_Catalogo.xss">
+      <DependentUpon>DS_tbEmpresas_Catalogo.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRecursos_CatalogoINV.xsc">
+      <DependentUpon>DS_tbRecursos_CatalogoINV.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_tbRecursos_CatalogoINV.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_tbRecursos_CatalogoINV.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_tbRecursos_CatalogoINV.xss">
+      <DependentUpon>DS_tbRecursos_CatalogoINV.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_TotalesPorBodegas.xsc">
+      <DependentUpon>DS_TotalesPorBodegas.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_TotalesPorBodegas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_TotalesPorBodegas.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_TotalesPorBodegas.xss">
+      <DependentUpon>DS_TotalesPorBodegas.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_TotalesPorElementoEspacio.xsc">
+      <DependentUpon>DS_TotalesPorElementoEspacio.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_TotalesPorElementoEspacio.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_TotalesPorElementoEspacio.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_TotalesPorElementoEspacio.xss">
+      <DependentUpon>DS_TotalesPorElementoEspacio.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_TotalesPorElementoUnidad.xsc">
+      <DependentUpon>DS_TotalesPorElementoUnidad.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DS_TotalesPorElementoUnidad.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_TotalesPorElementoUnidad.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Informes\DS_TotalesPorElementoUnidad.xss">
+      <DependentUpon>DS_TotalesPorElementoUnidad.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Site.Master" />
+    <Content Include="Site1.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Account\App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>64566</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
