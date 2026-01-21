@@ -663,13 +663,259 @@ Public Class frmtbRequisiciones_dtl
         Dim vnomPro As [String] = GetCurrentPageName()
         Dim vnomUsu As String = LeeCookie("usuNTId")
         Dim clsRequisiciones As New tbRequisiciones(vcliConexion)
-        clsRequisiciones.EnviaAlmacenista(vreqId, vusuId, vnomPro, vnomUsu)
+
+
+        'Added 2026-01-21
+        Dim dt As New DataTable
+        dt = clsRequisiciones.Search_by_ID3(vreqId).Tables(0)
+        Dim vreqNegociada As Boolean = False
+        Try
+            vreqNegociada = Convert.ToBoolean(dt.Rows(0).Item("reqNegociada"))
+        Catch ex As Exception
+        End Try
+        If vreqNegociada = True Then
+            Dim vautoriza As Boolean = False
+            vautoriza = ValidaPedidoNegociado()
+            If vautoriza Then
+                clsRequisiciones.EnviaAlmacenista(vreqId, vusuId, vnomPro, vnomUsu)
+                clsRequisiciones.AutorizaResidente(vreqId, vusuId, vnomPro, vnomUsu)
+                clsRequisiciones.AutorizaGerencia(vreqId, vusuId, vnomPro, vnomUsu)
+                Dim vsumcanCom As Decimal = 1
+                clsRequisiciones.AutorizaJefeAlmacen(vreqId, vsumcanCom, vusuId, vnomPro, vnomUsu)
+                clsRequisiciones.CotizacionInicia(vreqId, vusuId, vnomPro, vnomUsu)
+                clsRequisiciones.CotizacionTermina(vreqId, vusuId, vnomPro, vnomUsu)
+
+                ' Generación Requisición
+                Dim lisReq As String = vreqId.ToString()
+                Dim ds2 As New DataSet
+                ds2 = clsRequisiciones.GeneraComparativos(lisReq, vusuId, vnomPro, vnomUsu)
+
+                Try
+                    vobrId = Convert.ToInt32(txtcosId.Text.Trim)
+                Catch ex As Exception
+                End Try
+                ' Código Adicional para no tenerse que devolver a la pantalla de lista de Movimientos
+                Dim vnewcomId As Int32 = 0
+                Try
+                    vnewcomId = Convert.ToInt32(ds2.Tables(0).Rows(0)(0))
+                Catch
+                End Try
+                'CorreoGenerarComparativos(vobrId, vempId);
+                ' Recarga la Página
+                imgComparativos.Visible = True
+                lblComparativos.Visible = True
+                EscribeCookie("Detalle", "1")
+                'MessageBox("Generados Comparativos para la Requisición")
+
+                Dim clsSubEmpresas As New tbSubEmpresas(vcliConexion)
+                dt = clsSubEmpresas.SubEmpresasPorEmpresaWS(vempId, 0).Tables(0)
+                Dim vsubId As Integer = 0
+                Try
+                    vsubId = Convert.ToInt32(dt.Rows(0).Item("subId"))
+                Catch ex As Exception
+                End Try
+
+                ' Generación Orden de Compra
+                If vsubId <> 0 Then
+                    Dim clsComparativos As New tbComparativos(vcliConexion)
+                    Dim clsRequisicionesDetalle As New tbRequisicionesDetalle(vcliConexion)
+
+                    Dim vcomId As Integer = 0
+                    dt = clsComparativos.BuscaComparativosPorRequisicion(vreqId).Tables(0)
+                    If dt.Rows.Count > 0 Then
+                        Try
+                            vcomId = Convert.ToInt32(dt.Rows(0)("comId"))
+                        Catch
+                        End Try
+                        If vcomId <> 0 Then
+                            'Comprar todo a un solo proveedor
+                            Dim vrecId As Integer = 0
+                            Dim dtdet As New DataTable
+                            dtdet = clsRequisicionesDetalle.SearchbyReqId(vreqId).Tables(0)
+                            vrecId = Convert.ToInt32(dtdet.Rows(0).Item("recId"))
+                            Dim clsBancoDatos As New tbBancoDatos(vcliConexion)
+                            Dim ds As New DataSet
+                            ds = clsBancoDatos.CargaVigentesPorRecursoId(vrecId, "terNombre")
+                            Dim vterId As Integer = 0
+                            Try
+                                vterId = Convert.ToInt32(ds.Tables(0).Rows(0).Item("terId"))
+                            Catch ex As Exception
+                            End Try
+                            Dim ds3 As New DataSet()
+                            ds3 = clsComparativos.ComprarTodoAUnSoloProveedor(vcomId, vterId, vusuId, vnomPro, vnomUsu)
+
+                            'Genera Orden de Compra para el Comparativo recién creado
+                            Dim vordAbierta As Boolean = False
+                            Dim ds4 As New DataSet()
+                            ds4 = clsComparativos.GeneraOrdenesCompra(vcomId, vempId, vsubId, vordAbierta, vusuId, vnomPro, vnomUsu)
+                        End If
+                    End If
+
+                End If
+            End If
+        Else
+            clsRequisiciones.EnviaAlmacenista(vreqId, vusuId, vnomPro, vnomUsu)
+        End If
+        'End Added 2026-01-21
 
         'CorreoEnviaAlmacenista(vobrId, vempId)
 
         CargarPagina(vreqId)
 
     End Sub
+#End Region
+#Region "ValidaPedidoNegociado"
+    Public Function ValidaPedidoNegociado() As Boolean
+        Dim vretorno As Boolean = True
+        Dim vcliConexion As String = ""
+        Try
+            vcliConexion = LeeCookie("Conexion").ToString.Trim
+        Catch ex As Exception
+        End Try
+
+        Dim vusuId As Int32 = Convert.ToInt32(LeeCookie("usuId"))
+        Dim vsupusuId As Int32 = Convert.ToInt32(LeeCookie("supusuId"))
+        Dim vNuevo As [Boolean] = False
+        Dim clsModulosSistema As New tbModulosSistema(vcliConexion)
+        vNuevo = clsModulosSistema.AccesoModuloFuncion("010202", vusuId, vsupusuId, "permodNuevo")
+        If vNuevo = False Then
+            MessageBox("EL USUARIO NO ESTA AUTORIZADO PARA CREAR NUEVOS COMPARATIVOS")
+            Return vNuevo
+        End If
+
+        Dim vAcceso As [Boolean] = False
+        If vusuId <> vsupusuId Then
+            Dim clsPerfilesAprobaciones As New tbPerfilesAprobaciones(vcliConexion)
+            vAcceso = clsPerfilesAprobaciones.AccesoPerfilesAprobaciones(vusuId, "REQUISICION - GENERAR COMPARATIVOS")
+            vAcceso = True
+            If vAcceso = False Then
+                MessageBox("EL USUARIO NO TIENE PERFIL PARA ESTA AUTORIZACION")
+                Return vAcceso
+            End If
+        End If
+
+        '
+        Dim vreqId As Int32 = Convert.ToInt32(Request.QueryString("reqId"))
+        If vreqId = 0 Then
+            vreqId = Convert.ToInt32(hidreqId.Value)
+        End If
+        ' Valida si tiene items desactualizados en el Banco de Datos
+        Dim ds As New DataSet()
+        Dim dt As New DataTable()
+        Dim clsRequisicionesDetalle As New tbRequisicionesDetalle(vcliConexion)
+        Dim vcadOrden As String = "recCodigo"
+        ds = clsRequisicionesDetalle.CargaRequisicionesDetallePorRequisicion(vreqId, vcadOrden)
+        dt = ds.Tables(0)
+        Dim vrecId1 As Integer = 0
+        Dim nomRecurso As String = ""
+        Try
+            vrecId1 = Convert.ToInt32(dt.Rows(0).Item("recId"))
+            nomRecurso = dt.Rows(0)("recCodigo").ToString() & " - " & dt.Rows(0)("recNombre").ToString()
+        Catch
+        End Try
+        Dim dv As New DataView(dt)
+        Dim numBan As Int32 = 0
+        Dim vcanComprar As Decimal = 0
+        For Each dr As DataRowView In dv
+            numBan = numBan + Convert.ToInt32(dr.Row("vigban"))
+            vcanComprar = Convert.ToDecimal(dr.Row("canComprar"))
+            If vcanComprar <> 0 Then
+                If numBan = 0 Then
+                    nomRecurso = dr.Row("recCodigo") + " - " + dr.Row("recNombre")
+                    MessageBox("EL RECURSO " & nomRecurso.Trim() & " NO TIENE NINGUN REGISTRO ACTUALIZADO EN EL BANCO DE DATOS. NO PUEDEN GENERARSE EL COMPARATIVO")
+                    Return False
+                End If
+            End If
+        Next
+        ' Valida que sólo haya un registro actualizado en el Banco de Datos
+        Dim clsBancoDatos1 As New tbBancoDatos(vcliConexion)
+        Dim dtBD1 As New DataTable
+        dtBD1 = clsBancoDatos1.CargaVigentesPorRecursoId(vrecId1, "terNombre").Tables(0)
+        If dtBD1.Rows.Count > 1 Then
+            MessageBox("EL RECURSO " & nomRecurso.Trim() & " TIENE MAS DE UN REGISTRO ACTUALIZADO EN EL BANCO DE DATOS. NO PUEDE GENERARSE EL COMPARATIVO CONUNTAMENTE CON LA ORDEN")
+            Return False
+        End If
+
+        ' Valida si ya se generó comparativo para la Requisición
+        Dim clsComparativos As New tbComparativos(vcliConexion)
+        dt = clsComparativos.BuscaComparativosPorRequisicion(vreqId).Tables(0)
+        If dt.Rows.Count > 0 Then
+            Dim vcomId As Int32 = 0
+            Try
+                vcomId = Convert.ToInt32(dt.Rows(0)("comId"))
+            Catch
+            End Try
+            If vcomId <> 0 Then
+                MessageBox("Ya se generó Comparativo para la Requisición")
+                Return False
+            End If
+        End If
+
+        Dim vnomPro As [String] = GetCurrentPageName()
+        Dim vnomUsu As String = LeeCookie("usuNTId")
+
+        Dim clsTiposDocumentos As New tbTiposDocumentos(vcliConexion)
+        dt = clsTiposDocumentos.VerificaConsecutivoClase("CO", vnomPro, vnomUsu).Tables(0)
+        If dt.Rows.Count = 0 Then
+            MessageBox("No está creado un Tipo de Documento para los Comparativos que tenga un Talonario de Consecutivos")
+            Return False
+        End If
+
+        Dim vempId As Int32 = Convert.ToInt32(LeeCookie("empId"))
+
+        'Validaciones para la Generación de la Orden de Compra
+        Dim clsLapsosContables As New tbLapsos(vcliConexion)
+        Dim vfecha As DateTime = System.DateTime.Now.[Date]
+        Dim vlapId As Int32 = clsLapsosContables.TraeIdLapsoFecha(vfecha).Tables(0).Rows(0).Item("lapId")
+        If vlapId = 0 Then
+            MessageBox("No está creado el Lapso para la Fecha de Hoy")
+            Return False
+        End If
+        Dim clsSubEmpresas As New tbSubEmpresas(vcliConexion)
+        dt = clsSubEmpresas.SubEmpresasPorEmpresaWS(vempId, 0).Tables(0)
+        Dim vsubId As Integer = 0
+        Try
+            vsubId = Convert.ToInt32(dt.Rows(0).Item("subId"))
+        Catch ex As Exception
+        End Try
+        If vsubId = 0 Then
+            MessageBox("Debe escoger la Subempresa por donde se generará la Orden de Compra")
+            Return False
+        End If
+        'DataSet ds1 = new DataSet();
+        Dim clsPerfilesAprobaciones2 As New tbPerfilesAprobaciones(vcliConexion)
+        If vusuId <> vsupusuId Then
+            vAcceso = clsPerfilesAprobaciones2.AccesoPerfilesAprobaciones(vusuId, "COMPARATIVOS - GENERAR ORDENES DE COMPRA")
+            vAcceso = True
+            If vAcceso = False Then
+                MessageBox("EL USUARIO NO TIENE PERFIL PARA ESTE PROCESO")
+                Return False
+            End If
+        End If
+        Dim vclaDoc As [String] = "OC"
+
+
+        Dim dso As New DataSet()
+        Dim dto As New DataTable()
+        dso = clsTiposDocumentos.VerificaExisteConsecutivoClase(vclaDoc, vnomPro, vnomUsu)
+        dto = ds.Tables(0)
+
+        If dto.Rows.Count = 0 Then
+            MessageBox("No está creado un Tipo de Documento para las Ordenes de Compra que tenga un Talonario de Consecutivos")
+            'lblError.Visible = true;
+            'lblError.Text = "No está creado un Tipo de Documento para las Ordenes de Compra que tenga un Talonario de Consecutivos";
+            Return False
+        End If
+        dto = dso.Tables(0)
+
+        If dto.Rows.Count = 0 Then
+            MessageBox("No está creado un Tipo de Documento para las Ordenes de Compra que tenga un Talonario de Consecutivos")
+            Return False
+        End If
+        'Fin Validaciones para la Generación de la Orden de Compra
+
+        Return vretorno
+    End Function
 #End Region
 #Region "btnGeneraComparativoOrden_Click"
     Protected Sub btnGeneraComparativoOrden_Click(sender As Object, e As EventArgs) Handles btnGeneraComparativoOrden.Click
